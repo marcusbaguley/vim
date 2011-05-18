@@ -3,7 +3,7 @@ set nocompatible
 
 
 fun SetupVAM()
-  set runtimepath+=~/.vim/vim-addons/vim-addon-manager
+  set runtimepath+=~/vim-addons/vim-addon-manager
   call vam#ActivateAddons(["The_NERD_tree", "The_NERD_Commenter", "molokai", "fugitive"],{'auto_install' : 0})
 endf
 call SetupVAM()
