@@ -39,7 +39,7 @@ set incsearch
 set ignorecase
 set smartcase
 
-setglobal keywordprg=ack\ --nocolor\ --pager=more
+set keywordprg=ack\ --nocolor\ --pager=more
 
 
 " Keyboard mappings
@@ -49,11 +49,13 @@ noremap <M-s> :update<CR>
 vnoremap <M-s> <C-C>:update<CR>
 inoremap <M-s> <C-O>:update<CR>
 " NERD Commenter toggle
-map <C-/> <leader>c<space>
+map <D-/> <leader>c<space>
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+" map <Leader>r :call system("open http://railsapi.com/doc/rails-v3.0.8rc1_ruby-v1.8/?q=<cword>")
+map <Leader>r :silent !open http://railsapi.com/doc/rails-v3.0.8rc1_ruby-v1.8/?q=<cword><CR>
 
 "Directories for swp files
 set backupdir=~/.vim/swp-files
