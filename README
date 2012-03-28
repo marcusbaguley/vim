@@ -1,5 +1,5 @@
 linux-installation-script
 
-VAM_PLUGINS=~/vim-addons
+VAM_PLUGINS=~/.vim-addons
 mkdir -p $VAM_PLUGINS
 git clone --depth 1 git://github.com/MarcWeber/vim-addon-manager.git $VAM_PLUGINS/vim-addon-manager

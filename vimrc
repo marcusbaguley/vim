@@ -5,7 +5,7 @@ set nocompatible
 
 fun SetupVAM()
   set runtimepath+=~/.vim-addons/vim-addon-manager
-  call vam#ActivateAddons(["The_NERD_tree", "The_NERD_Commenter", "molokai", "fugitive", "Command-T", "ack", "ZoomWin", "ragtag"],{'auto_install' : 0})
+  call vam#ActivateAddons(["The_NERD_tree", "The_NERD_Commenter", "molokai", "rails", "fugitive", "Command-T", "ack", "ZoomWin", "ragtag", "vim-coffee-script"],{'auto_install' : 0})
 endf
 call SetupVAM()
 " experimental: run after gui has been started [3]
@@ -43,8 +43,8 @@ set smartcase
 
 
 " Keyboard mappings
-map <leader>n :NERDTreeToggle<CR>
-map <leader>N :NERDTreeFind<CR>
+map <leader>[ :NERDTreeToggle<CR>
+map <leader>{ :NERDTreeFind<CR>
 " Use CTRL-S for saving, also in Insert mode
 noremap <M-s> :update<CR>
 vnoremap <M-s> <C-C>:update<CR>
@@ -59,6 +59,8 @@ nmap <F3> :call SaveSession()<CR>
 nmap <F4> :so ~/.vim/sessions/
 " map <Leader>r :call system("open http://railsapi.com/doc/rails-v3.0.8rc1_ruby-v1.8/?q=<cword>")
 map <Leader>r :silent !open http://railsapi.com/doc/rails-v3.0.8rc1_ruby-v1.8/?q=<cword><CR>
+" command-T
+map <leader>] :CommandT<CR>
 
 
 "Directories for swp files
