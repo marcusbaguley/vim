@@ -43,22 +43,32 @@ set smartcase
 
 
 " Keyboard mappings
+" hide hightlighting on return
+nnoremap <CR> :noh<CR><CR>
+
+" NERDTree
 map <leader>[ :NERDTreeToggle<CR>
 map <leader>{ :NERDTreeFind<CR>
+
 " Use CTRL-S for saving, also in Insert mode
 noremap <M-s> :update<CR>
 vnoremap <M-s> <C-C>:update<CR>
 inoremap <M-s> <C-O>:update<CR>
+
 " NERD Commenter toggle
 map <D-/> <leader>c<space>
+
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 " save and load sessions, respectively
 nmap <F3> :call SaveSession()<CR>
 nmap <F4> :so ~/.vim/sessions/
+
 " map <Leader>r :call system("open http://railsapi.com/doc/rails-v3.0.8rc1_ruby-v1.8/?q=<cword>")
 map <Leader>r :silent !open http://railsapi.com/doc/rails-v3.0.8rc1_ruby-v1.8/?q=<cword><CR>
+
 " command-T
 map <leader>] :CommandT<CR>
 
