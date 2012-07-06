@@ -1,16 +1,58 @@
-" This setting prevents vim from emulating the original vi's bugs and limitations.
-set nocompatible
-" set macmeta
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'vim-scripts/AutoTag'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'tomasr/molokai'
+Bundle 'jpalardy/vim-slime'
+Bundle 'godlygeek/tabular'
+Bundle 'kien/ctrlp.vim'
+
+" vim-snipmate and dependencies
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
+Bundle 'garbas/vim-snipmate'
+
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" vim-scripts repos
+" undle 'L9'
+" Bundle 'FuzzyFinder'
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
 
 
-fun SetupVAM()
-  set runtimepath+=~/.vim-addons/vim-addon-manager
-  call vam#ActivateAddons(["The_NERD_tree", "The_NERD_Commenter", "molokai", "Command-T", "ack", "ZoomWin", "ragtag", "vim-coffee-script", "github:jpalardy/vim-slime.git", "abolish", "AutoTag", "github:tpope/vim-rails.git", "github:tpope/vim-rake.git", "github:tpope/vim-bundler.git", "github:tpope/vim-unimpaired.git", "github:tpope/vim-fugitive.git", "snipmate-snippets", "vividchalk", "github:godlygeek/tabular.git", "github:tpope/vim-surround.git"],{'auto_install' : 0})
-endf
-call SetupVAM()
-" experimental: run after gui has been started [3]
-" option1:  au VimEnter * call SetupVAM()
-" option2:  au GUIEnter * call SetupVAM()
+
+
+
+
+
+
 
 " GUI options
 "colorscheme molokai
@@ -85,16 +127,23 @@ map <Leader>r :silent !open "http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-
 map <Leader>R :silent !open "http://apidock.com/rails/?q=<cword>"<CR>
 
 " command-T
-let g:CommandTMaxHeight=20
-map <leader>] :CommandT<CR>
-map <leader>]M :CommandT<CR>app/models/
-map <leader>]C :CommandT<CR>app/controllers/
-map <leader>]V :CommandT<CR>app/views/
-map <leader>]L :CommandT<CR>lib/
-map <leader>]E :CommandT<CR>config/environments/
-map <leader>]S :CommandT<CR>spec/
-map <leader>]Sc :CommandT<CR>spec/controllers/
-map <leader>]Sm :CommandT<CR>spec/models/
+"let g:CommandTMaxHeight=20
+"map <leader>] :CommandT<CR>
+"map <leader>]M :CommandT<CR>app/models/
+"map <leader>]C :CommandT<CR>app/controllers/
+"map <leader>]V :CommandT<CR>app/views/
+"map <leader>]L :CommandT<CR>lib/
+"map <leader>]E :CommandT<CR>config/environments/
+"map <leader>]S :CommandT<CR>spec/
+"map <leader>]Sc :CommandT<CR>spec/controllers/
+"map <leader>]Sm :CommandT<CR>spec/models/
+
+" ctrl-p
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_working_path_mode = 2
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip  " MacOSX/Linux
+"let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
 
 " ack
 nmap <leader>a :Ack! -i "<cword>"<CR>
