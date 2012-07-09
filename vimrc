@@ -51,6 +51,7 @@ Bundle 'garbas/vim-snipmate'
 " colorschemes
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tomasr/molokai'
+Bundle 'Lokaltog/vim-powerline'
 
 
 
@@ -63,6 +64,7 @@ colorscheme vividchalk
 set guioptions=
 set ruler
 set number
+set laststatus=2 " always show the statusline
 
 " Custom cursor
 if has("gui_running")
