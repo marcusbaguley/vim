@@ -49,3 +49,5 @@ nmap <leader>tw :%s/\s\+$//g<CR>
 " tidy html
 command Tidy %!tidy --tidy-mark no -indent --indent-spaces 2 -quiet
 
+" Underline cur line with =
+noremap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>

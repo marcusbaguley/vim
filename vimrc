@@ -21,7 +21,7 @@ Bundle 'gmarik/vundle'
 " ==================
 
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
+" Bundle 'scrooloose/nerdcommenter'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'vim-scripts/AutoTag'
@@ -30,6 +30,7 @@ Bundle 'jpalardy/vim-slime'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-markdown'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " Tim Pope's useful plugins
@@ -41,6 +42,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-commentary'
 
 " vim-snipmate and dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -96,7 +100,6 @@ set autoread " Automatically load changes to open files
 
 " Use spaces instead of tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-" NERD commenter requires filetypes turned on
 filetype indent plugin on
 
 
