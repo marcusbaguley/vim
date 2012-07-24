@@ -29,7 +29,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'jpalardy/vim-slime'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-markdown'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -52,6 +52,11 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
 
+" rubyblock and dependencies
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+runtime macros/matchit.vim
+
 " colorschemes
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tomasr/molokai'
@@ -72,12 +77,8 @@ set laststatus=2 " always show the statusline
 
 " Custom cursor
 if has("gui_running")
-  set cursorline
-  set cursorcolumn
-
-  "set guicursor="n-v-c:block-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175"
-  "set guicursor+=a:blinkon0
-  set guicursor=n-v:block-nCursor
+  " set cursorline
+  " set cursorcolumn
 
   " Highlight trailing whitespace.
   autocmd BufWinEnter * match Todo /\s\+$/
@@ -112,6 +113,16 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+
+
+"
+" Autocomplete
+" ============
+
+set complete=.,b,u,]
+set wildmode=longest,list:longest
+set completeopt=menu,preview
 
 
 

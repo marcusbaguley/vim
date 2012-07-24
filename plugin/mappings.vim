@@ -1,3 +1,6 @@
+" fast insert mode exit
+imap jj <Esc>
+
 " vim-slime
 let g:slime_target = "tmux"
 
@@ -31,6 +34,7 @@ map <Leader>R :silent !open "http://apidock.com/rails/?q=<cword>"<CR>
 
 " ctrl-p
 map <leader>] :CtrlP<CR>
+map <leader>} :CtrlPLine<CR>
 
 " ack
 nmap <leader>a :Ack! -i "<cword>"<CR>
@@ -39,8 +43,8 @@ vmap <leader>a "hy:Ack! -i "<C-r>h"<CR>
 vmap <leader>A "hy:Ack! -i "<C-r>h"
 
 " search and replace
-vmap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-"vmap <C-r> "hy:,$s/<C-r>h//gc|1,''-&&
+vmap <C-r> "hy:,$s/<C-r>h//gc<left><left><left>
+" vmap <C-r> "hy:,$s/<C-r>h//gc|1,''-&&
 "vmap <C-r> :,$s/BEFORE/AFTER/gc|1,''-&&
 
 " remove trailing whitespace
