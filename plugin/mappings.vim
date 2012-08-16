@@ -42,7 +42,7 @@ nmap <leader>A :Ack! -i ""<left>
 vmap <leader>a "hy:Ack! -i "<C-r>h"<CR>
 vmap <leader>A "hy:Ack! -i "<C-r>h"
 
-" search and replace
+" searching and replace
 vmap <C-r> "hy:,$s/<C-r>h//gc<left><left><left>
 " vmap <C-r> "hy:,$s/<C-r>h//gc|1,''-&&
 "vmap <C-r> :,$s/BEFORE/AFTER/gc|1,''-&&
@@ -54,4 +54,17 @@ nmap <leader>tw :%s/\s\+$//g<CR>
 command Tidy %!tidy --tidy-mark no -indent --indent-spaces 2 -quiet
 
 " Underline cur line with =
-noremap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
+" noremap <silent> <Leader>ul :t.\|s/\w\zs./=/g\|set nohl<cr>
+noremap <silent> <Leader>ul VU:t.<cr>v$r=
+
+" Center the display line after searches. (This makes it *much* easier to see
+" the matched line.)
+"
+" More info: http://www.vim.org/tips/tip.php?tip_id=528
+"
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
