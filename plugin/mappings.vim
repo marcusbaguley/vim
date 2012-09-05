@@ -29,8 +29,9 @@ nmap <F3> :call SaveSession()<CR>
 nmap <F4> :so ~/.vim/sessions/
 
 "map <Leader>r :call system("open http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-v1.3.4_ruby-v1.9.2/?q=<cword>")
-map <Leader>r :silent !open "http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-v1.3.4_ruby-v1.9.2/?q=<cword>"<CR>
-map <Leader>R :silent !open "http://apidock.com/rails/?q=<cword>"<CR>
+" map <Leader>r :silent !open "http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-v1.3.4_ruby-v1.9.2/?q=<cword>"<CR>
+map <Leader>r :silent !open "dash://<cword>"<CR>
+" map <Leader>R :silent !open "http://apidock.com/rails/?q=<cword>"<CR>
 
 " ctrl-p
 map <leader>] :CtrlP<CR>

@@ -32,6 +32,7 @@ Bundle 'kien/ctrlp.vim'
 " Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-markdown'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'vim-ruby/vim-ruby'
 
 " Tim Pope's useful plugins
 Bundle 'tpope/vim-rails'
