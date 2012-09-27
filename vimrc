@@ -71,15 +71,17 @@ Bundle 'Lokaltog/vim-powerline'
 
 "colorscheme molokai
 colorscheme vividchalk
-set guioptions=
 set ruler
 set number
+syntax enable
 set laststatus=2 " always show the statusline
 
-" Custom cursor
 if has("gui_running")
   " set cursorline
   " set cursorcolumn
+
+  " no menubar etc
+  set guioptions=
 
   " Highlight trailing whitespace.
   autocmd BufWinEnter * match Todo /\s\+$/
