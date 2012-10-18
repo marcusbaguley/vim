@@ -81,22 +81,7 @@ Bundle 'Lokaltog/vim-powerline'
 " GUI options
 " ===========
 
-" colorscheme molokai
-" colorscheme vividchalk
-colorscheme solarized
-set ruler
-set number
-syntax enable
-set laststatus=2 " always show the statusline
-
-" netrw options
-let g:netrw_liststyle=3 " tree style listing
-let g:netrw_banner=0 " hide the banner
-let g:netrw_preview=1 " preview in a vertical split window
-
-
-
-if has("gui_running")
+if has('gui_running')
   " set cursorline
   " set cursorcolumn
 
@@ -105,7 +90,20 @@ if has("gui_running")
 
   " Highlight trailing whitespace.
   autocmd BufWinEnter * match Todo /\s\+$/
+else
+  " for colorscheme solarized
+  let g:solarized_termcolors=256
 endif
+
+" colorscheme molokai
+" colorscheme vividchalk
+colorscheme solarized
+set background=dark
+
+set ruler
+set number
+syntax enable
+set laststatus=2 " always show the statusline
 
 
 
