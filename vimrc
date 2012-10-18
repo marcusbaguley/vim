@@ -25,26 +25,19 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'vim-scripts/AutoTag'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'jpalardy/vim-slime'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 " Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-markdown'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'vim-ruby/vim-ruby'
 
 " Tim Pope's useful plugins
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 
 " vim-snipmate and dependencies
@@ -53,14 +46,33 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
 
-" rubyblock and dependencies
+" new syntax
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-markdown'
+Bundle 'duwanis/tomdoc.vim'
+
+" ruby specific
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-endwise'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'AndrewRadev/switch.vim'
+
+" textobjects
 Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-line'
+Bundle 'kana/vim-textobj-indent'
+Bundle 'lucapette/vim-textobj-underscore'
+
 runtime macros/matchit.vim
+Bundle 'nelstrom/vim-textobj-rubyblock'
 
 " colorschemes
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tomasr/molokai'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 
 
@@ -69,12 +81,20 @@ Bundle 'Lokaltog/vim-powerline'
 " GUI options
 " ===========
 
-"colorscheme molokai
-colorscheme vividchalk
+" colorscheme molokai
+" colorscheme vividchalk
+colorscheme solarized
 set ruler
 set number
 syntax enable
 set laststatus=2 " always show the statusline
+
+" netrw options
+let g:netrw_liststyle=3 " tree style listing
+let g:netrw_banner=0 " hide the banner
+let g:netrw_preview=1 " preview in a vertical split window
+
+
 
 if has("gui_running")
   " set cursorline
@@ -126,6 +146,14 @@ set smartcase
 set complete=.,b,u,]
 set wildmode=longest,list:longest
 set completeopt=menu,preview
+
+
+
+"
+" Environment Variables
+" =====================
+
+set shell=/bin/sh " ensures that ~/.zshrc is sourced, which loads rvm
 
 
 
