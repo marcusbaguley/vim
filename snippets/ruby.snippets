@@ -1,8 +1,15 @@
 snippet tom
 	# ${1:Public|Internal|Deprecated}: ${2:Duplicate some text an arbitrary number of times.}
 	#
-	# ${3:text  - The String to be duplicated.}
+	# ${3:text - The String to be duplicated (default: nil).}
 	#
 	# ${4:Examples}
 	#
 	# ${5:Returns the duplicated String.}
+
+snippet task
+	desc "${1:A brief description of the rake tasks action.}"
+	task :${2:t}, [${3:args(eg, :file)}] => [${4:deps(eg, :environment)}] do |t, args|
+	  ${3:puts args[:file]}
+	end
+

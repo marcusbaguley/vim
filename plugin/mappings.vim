@@ -76,8 +76,21 @@ vmap <leader>A "hy:Ack! -i "<C-r>h"
 
 
 
+" visual star
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch()
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+
+
 " searching and replace
-vmap <C-r> "hy:,$s/<C-r>h//gc<left><left><left>
+" xnoremap <C-r> "hy:,$s/<C-r>h//gc<left><left><left>
+xnoremap <C-r> :<C-u>call <SID>VSetSearch()<CR>:,$s/<C-R>=@/<CR>//gc<left><left><left>
 " vmap <C-r> "hy:,$s/<C-r>h//gc|1,''-&&
 "vmap <C-r> :,$s/BEFORE/AFTER/gc|1,''-&&
 

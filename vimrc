@@ -30,6 +30,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'chrisbra/NrrwRgn'
 
 " Tim Pope's useful plugins
 Bundle 'tpope/vim-unimpaired'
