@@ -20,17 +20,26 @@ Bundle 'gmarik/vundle'
 " Bundles for Vundle
 " ==================
 
-Bundle 'scrooloose/nerdtree'
-" Bundle 'scrooloose/nerdcommenter'
-Bundle 'mileszs/ack.vim'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'vim-scripts/AutoTag'
-Bundle 'jpalardy/vim-slime'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-" Bundle 'Lokaltog/vim-easymotion'
+" Currently playing around with:
+
+Bundle 'ervandew/screen'
+Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'xaviershay/tslime.vim'
+" Bundle 'vim-scripts/YankRing.vim'
+" Bundle 'jpalardy/vim-slime'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'chrisbra/NrrwRgn'
+
+" Essential bundles:
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/AutoTag'
+Bundle 'kien/ctrlp.vim'
+
+" Nice bundles:
+
+Bundle 'godlygeek/tabular'
 
 " Tim Pope's useful plugins
 Bundle 'tpope/vim-unimpaired'
@@ -82,6 +91,10 @@ Bundle 'Lokaltog/vim-powerline'
 " GUI options
 " ===========
 
+set ruler
+set number
+syntax enable
+
 if has('gui_running')
   " set cursorline
   " set cursorcolumn
@@ -100,11 +113,10 @@ endif
 " colorscheme vividchalk
 colorscheme solarized
 set background=dark
+highlight SignColumn guibg=background
 
-set ruler
-set number
-syntax enable
 set laststatus=2 " always show the statusline
+let g:Powerline_symbols = 'unicode'
 
 
 
@@ -162,3 +174,66 @@ set shell=/bin/sh " ensures that ~/.zshrc is sourced, which loads rvm
 
 set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
+
+
+
+
+" Vim. Live it. ------------------------------------------------------- {{{
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+inoremap <up> <nop>
+" }}}
+
+
+
+
+
+let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
+let g:quickfixsigns_balloon=0
+
+" viminfo: remember certain things when we exit
+" (http://vimdoc.sourceforge.net/htmldoc/usr_21.html)
+"   %    : saves and restores the buffer list
+"   '100 : marks will be remembered for up to 30 previously edited files
+"   /100 : save 100 lines from search history
+"   h    : disable hlsearch on start
+"   "500 : save up to 500 lines for each register
+"   :100 : up to 100 lines of command-line history will be remembered
+"   n... : where to save the viminfo files
+set viminfo=%100,'100,/100,h,\"500,:100,n~/.vim/viminfo
+
+" Undo
+set undolevels=10000
+if has("persistent_undo")
+  set undodir=~/.vim/undo       " Allow undoes to persist even after a file is closed
+  set undofile
+endif
+
+" Always edit file, even when swap file is found
+set shortmess+=A
+
+" Toggle paste mode while in insert mode with F12
+set pastetoggle=<F12>
+
+" When opening a file, always jump to the last cursor position
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \     exe "normal g'\"" |
+    \ endif |
+
+" Screen settings
+" let g:ScreenImpl = 'Tmux'
+" let g:ScreenShellTmuxInitArgs = '-2'
+" let g:ScreenShellInitialFocus = 'shell'
+" let g:ScreenShellQuitOnVimExit = 0
+" map <F5> :ScreenShellVertical<CR>
+command -nargs=? -complete=shellcmd W  :w | :call Send_to_Tmux("load '" . @% . "';" . "\n")
+map <Leader>r :w<CR> :call Send_to_Tmux("rspec ". @% . ':' . line('.') . "\n")<CR>
+map <Leader>b :w<CR> :call Send_to_Tmux("break ". @% . ':' . line('.') . "\n")<CR>
+
+let g:ScreenShellTerminal = '/Applications/iTerm.app/Contents/MacOS/iTerm'

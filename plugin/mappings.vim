@@ -1,15 +1,24 @@
+" dont use arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+
+
+" surround.vim
+let g:surround_{char2nr("d")} = "<div\1class: \r..*\r id=\"&\"\1>\r</div>"
+
+
+
+" navigate tabs
+nnoremap ]t :tabnext<CR>
+nnoremap [t :tabprevious<CR>
+
+
+
 " Switch.vim
 nnoremap - :Switch<cr>
-
-
-
-" fast insert mode exit
-imap jj <Esc>
-
-
-
-" vim-slime
-let g:slime_target = "tmux"
 
 
 
@@ -57,7 +66,7 @@ nmap <F4> :so ~/.vim/sessions/
 
 "map <Leader>r :call system("open http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-v1.3.4_ruby-v1.9.2/?q=<cword>")
 " map <Leader>r :silent !open "http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-v1.3.4_ruby-v1.9.2/?q=<cword>"<CR>
-map <Leader>r :silent !open "dash://<cword>"<CR>
+" map <Leader>r :silent !open "dash://<cword>"<CR>
 " map <Leader>R :silent !open "http://apidock.com/rails/?q=<cword>"<CR>
 
 
@@ -69,10 +78,10 @@ map <leader>} :CtrlPLine<CR>
 
 
 " ack
-nmap <leader>a :Ack! -i "<cword>"<CR>
-nmap <leader>A :Ack! -i ""<left>
-vmap <leader>a "hy:Ack! -i "<C-r>h"<CR>
-vmap <leader>A "hy:Ack! -i "<C-r>h"
+nmap <leader>a :Ack! -i '<cword>'<CR>
+nmap <leader>A :Ack! -i ''<left>
+vmap <leader>a "hy:Ack! -iQ '<C-r>h'<CR>
+vmap <leader>A "hy:Ack! -iQ '<C-r>h'
 
 
 
@@ -102,14 +111,14 @@ nmap <leader>tw :%s/\s\+$//g<CR>
 
 
 " tidy html
-command Tidy %!tidy --tidy-mark no -indent --indent-spaces 2 -quiet
+nmap <leader>T :%!tidy --tidy-mark no -indent --indent-spaces 2 -quiet 
 
 
 
 " Underline and comment
 " noremap <silent> <Leader>ul :t.\|s/\w\zs./=/g\|set nohl<cr>
 noremap <silent> <Leader>ul VU:t.<cr>v$r=
-imap \ul <Esc>VUyypv$r=<Leader><Leader>kO<Esc>3jO<CR>
+imap \ul <Esc>VUyypv$r=<Leader><Leader>kO<Esc>3jO
 
 
 
