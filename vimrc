@@ -60,6 +60,8 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-markdown'
 Bundle 'duwanis/tomdoc.vim'
+Bundle 'ap/vim-css-color'
+Bundle 'groenewege/vim-less'
 
 " ruby specific
 Bundle 'tpope/vim-rails'
