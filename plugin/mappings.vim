@@ -1,32 +1,20 @@
+" open markdown preview in background
 nmap <Leader>m :silent !/Applications/Marked.app/Contents/MacOS/Marked %&<CR>
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Test-running stuff for zeus
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>S :call RunCurrentTest() <CR>
+map <leader>s :call RunCurrentLineInTest() <CR>
+
 function! RunCurrentTest()
   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
   if in_test_file
     call SetTestFile()
-
-    if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("!zeus cucumber")
-      exec g:bjo_test_runner g:bjo_test_file
-    elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("!zeus rspec --no-color")
-      exec g:bjo_test_runner g:bjo_test_file
-    else
-      call SetTestRunner("!ruby -Itest")
-      exec g:bjo_test_runner g:bjo_test_file
-    endif
-  else
-    exec g:bjo_test_runner g:bjo_test_file
+    call SelectTestRunner()
   endif
-endfunction
 
-function! SetTestRunner(runner)
-  let g:bjo_test_runner=a:runner
+  exec g:last_test_runner g:last_test_file
 endfunction
 
 function! RunCurrentLineInTest()
@@ -35,47 +23,32 @@ function! RunCurrentLineInTest()
     call SetTestFileWithLine()
   end
 
-  exec "!zeus rspec --no-color" g:bjo_test_file . ":" . g:bjo_test_file_line
+  exec g:last_test_runner g:last_test_file . ":" . g:last_test_file_line
+endfunction
+
+function! SelectTestRunner()
+  let zeus="zeus "
+  if match(expand('%'), '\.feature$') != -1
+    call SetTestRunner("!" . zeus . "cucumber")
+  elseif match(expand('%'), '_spec\.rb$') != -1
+    call SetTestRunner("!" . zeus . "rspec --no-color")
+  else
+    call SetTestRunner("!ruby -Itest")
+  endif
+endfunction
+
+function! SetTestRunner(runner)
+  let g:last_test_runner=a:runner
 endfunction
 
 function! SetTestFile()
-  let g:bjo_test_file=@%
+  let g:last_test_file=@%
 endfunction
 
 function! SetTestFileWithLine()
-  let g:bjo_test_file=@%
-  let g:bjo_test_file_line=line(".")
+  let g:last_test_file=@%
+  let g:last_test_file_line=line(".")
 endfunction
-
-map <leader>S :call RunCurrentTest() <CR>
-map <leader>s :call RunCurrentLineInTest() <CR>
-
-
-
-
-
-
-
-
-" map <leader>S :!zeus rspec --no-color %<CR>
-" map <leader>s :execute("!zeus rspec --no-color %:" . line("."))<CR>
-
-
-
-
-" function! RSpecFile()
-"   execute("!zeus rspec --no-color %")
-" endfunction
-" map <leader>S :call RSpecFile() <CR>
-" " command! RSpecFile call RSpecFile()
-
-" function! RSpecCurrent()
-"   execute("!zeus rspec --no-color %:" . line("."))
-" endfunction
-" map <leader>s :call RSpecCurrent() <CR>
-" " command! RSpecCurrent call RSpecCurrent()
-
-" nmap <leader>s :!rspec --no-color %<CR>
 
 
 
@@ -130,11 +103,6 @@ map <leader>{ :NERDTreeFind<CR>
 noremap <M-s> :update<CR>
 vnoremap <M-s> <C-C>:update<CR>
 inoremap <M-s> <C-O>:update<CR>
-
-
-
-" NERD Commenter toggle
-" map <D-/> <leader>c<space>
 
 
 
@@ -197,7 +165,7 @@ nmap <leader>T :%!tidy --tidy-mark no -indent --indent-spaces 2 -quiet
 " Underline and comment
 " noremap <silent> <Leader>ul :t.\|s/\w\zs./=/g\|set nohl<cr>
 noremap <silent> <Leader>ul VU:t.<cr>v$r=
-imap \ul <Esc><Esc>VUyypv$r=<Leader><Leader>kO<Esc>3jO
+imap \ul <Esc><Esc>VUyypv$r=gcckO<Esc>3jO
 
 
 

@@ -15,3 +15,5 @@ snippet task
 # rspec
 snippet assigns
 	assigns(:${1:variable}) { should ${2} }
+snippet change
+	change(${1:Model}, :${2:method}).by(${3})
