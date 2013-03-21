@@ -26,6 +26,7 @@ Bundle 'ervandew/screen'
 Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'xaviershay/tslime.vim'
+Bundle 'ecomba/vim-ruby-refactoring'
 " Bundle 'vim-scripts/YankRing.vim'
 " Bundle 'jpalardy/vim-slime'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -171,34 +172,28 @@ set shell=/bin/sh " ensures that ~/.zshrc is sourced, which loads rvm
 
 
 "
-" Directories for swp files
+" Swap files
 " =========================
 
 set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
+set shortmess+=A
 
 
 
-
-" Vim. Live it. ------------------------------------------------------- {{{
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-inoremap <up> <nop>
-" }}}
-
-
-
-
+"
+" DIFF SIGNS ON MARGIN
+" ====================
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 let g:quickfixsigns_balloon=0
 
-" viminfo: remember certain things when we exit
+
+
+"
+" VIMINFO: REMEMBER CERTAIN THINGS WHEN WE EXIT
+" =============================================
+
 " (http://vimdoc.sourceforge.net/htmldoc/usr_21.html)
 "   %    : saves and restores the buffer list
 "   '100 : marks will be remembered for up to 30 previously edited files
@@ -208,34 +203,28 @@ let g:quickfixsigns_balloon=0
 "   :100 : up to 100 lines of command-line history will be remembered
 "   n... : where to save the viminfo files
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.vim/viminfo
-
-" Undo
-set undolevels=10000
-if has("persistent_undo")
-  set undodir=~/.vim/undo       " Allow undoes to persist even after a file is closed
-  set undofile
-endif
-
-" Always edit file, even when swap file is found
-set shortmess+=A
-
-" Toggle paste mode while in insert mode with F12
-set pastetoggle=<F12>
-
 " When opening a file, always jump to the last cursor position
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
     \     exe "normal g'\"" |
     \ endif |
 
-" Screen settings
-" let g:ScreenImpl = 'Tmux'
-" let g:ScreenShellTmuxInitArgs = '-2'
-" let g:ScreenShellInitialFocus = 'shell'
-" let g:ScreenShellQuitOnVimExit = 0
-" map <F5> :ScreenShellVertical<CR>
-command -nargs=? -complete=shellcmd W  :w | :call Send_to_Tmux("load '" . @% . "';" . "\n")
-map <Leader>r :w<CR> :call Send_to_Tmux("rspec ". @% . ':' . line('.') . "\n")<CR>
-map <Leader>b :w<CR> :call Send_to_Tmux("break ". @% . ':' . line('.') . "\n")<CR>
 
-let g:ScreenShellTerminal = '/Applications/iTerm.app/Contents/MacOS/iTerm'
+
+"
+" UNDO
+" ====
+
+set undolevels=10000
+if has("persistent_undo")
+  set undodir=~/.vim/undo       " Allow undoes to persist even after a file is closed
+  set undofile
+endif
+
+
+
+"
+" PASTE MODE TOGGLE
+" =================
+
+set pastetoggle=<F12>

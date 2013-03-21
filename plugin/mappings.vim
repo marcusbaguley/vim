@@ -1,13 +1,99 @@
+nmap <Leader>m :silent !/Applications/Marked.app/Contents/MacOS/Marked %&<CR>
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Test-running stuff for zeus
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RunCurrentTest()
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+
+    if match(expand('%'), '\.feature$') != -1
+      call SetTestRunner("!zeus cucumber")
+      exec g:bjo_test_runner g:bjo_test_file
+    elseif match(expand('%'), '_spec\.rb$') != -1
+      call SetTestRunner("!zeus rspec --no-color")
+      exec g:bjo_test_runner g:bjo_test_file
+    else
+      call SetTestRunner("!ruby -Itest")
+      exec g:bjo_test_runner g:bjo_test_file
+    endif
+  else
+    exec g:bjo_test_runner g:bjo_test_file
+  endif
+endfunction
+
+function! SetTestRunner(runner)
+  let g:bjo_test_runner=a:runner
+endfunction
+
+function! RunCurrentLineInTest()
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  if in_test_file
+    call SetTestFileWithLine()
+  end
+
+  exec "!zeus rspec --no-color" g:bjo_test_file . ":" . g:bjo_test_file_line
+endfunction
+
+function! SetTestFile()
+  let g:bjo_test_file=@%
+endfunction
+
+function! SetTestFileWithLine()
+  let g:bjo_test_file=@%
+  let g:bjo_test_file_line=line(".")
+endfunction
+
+map <leader>S :call RunCurrentTest() <CR>
+map <leader>s :call RunCurrentLineInTest() <CR>
+
+
+
+
+
+
+
+
+" map <leader>S :!zeus rspec --no-color %<CR>
+" map <leader>s :execute("!zeus rspec --no-color %:" . line("."))<CR>
+
+
+
+
+" function! RSpecFile()
+"   execute("!zeus rspec --no-color %")
+" endfunction
+" map <leader>S :call RSpecFile() <CR>
+" " command! RSpecFile call RSpecFile()
+
+" function! RSpecCurrent()
+"   execute("!zeus rspec --no-color %:" . line("."))
+" endfunction
+" map <leader>s :call RSpecCurrent() <CR>
+" " command! RSpecCurrent call RSpecCurrent()
+
+" nmap <leader>s :!rspec --no-color %<CR>
+
+
+
+
 " dont use arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+inoremap <up> <nop>
 
 
 
 " surround.vim
-let g:surround_{char2nr("d")} = "<div\1class: \r..*\r id=\"&\"\1>\r</div>"
+let g:surround_{char2nr("c")} = "<div\1class: \r..*\r class=\"&\"\1>\r</div>"
 
 
 
@@ -54,20 +140,13 @@ inoremap <M-s> <C-O>:update<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 
 
 " save and load sessions, respectively
 nmap <F3> :call SaveSession()<CR>
 nmap <F4> :so ~/.vim/sessions/
-
-
-
-"map <Leader>r :call system("open http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-v1.3.4_ruby-v1.9.2/?q=<cword>")
-" map <Leader>r :silent !open "http://railsapi.com/doc/rails-v3.0.8rc1_rspecrails-v1.3.4_ruby-v1.9.2/?q=<cword>"<CR>
-" map <Leader>r :silent !open "dash://<cword>"<CR>
-" map <Leader>R :silent !open "http://apidock.com/rails/?q=<cword>"<CR>
 
 
 
@@ -118,7 +197,7 @@ nmap <leader>T :%!tidy --tidy-mark no -indent --indent-spaces 2 -quiet
 " Underline and comment
 " noremap <silent> <Leader>ul :t.\|s/\w\zs./=/g\|set nohl<cr>
 noremap <silent> <Leader>ul VU:t.<cr>v$r=
-imap \ul <Esc>VUyypv$r=<Leader><Leader>kO<Esc>3jO
+imap \ul <Esc><Esc>VUyypv$r=<Leader><Leader>kO<Esc>3jO
 
 
 

@@ -10,6 +10,8 @@ snippet tom
 snippet task
 	desc "${1:A brief description of the rake tasks action.}"
 	task :${2:t}, [${3:args(eg, :file)}] => [${4:deps(eg, :environment)}] do |t, args|
-	  ${3:puts args[:file]}
+	  ${5:puts args[:file]}
 	end
-
+# rspec
+snippet assigns
+	assigns(:${1:variable}) { should ${2} }
