@@ -22,21 +22,26 @@ Bundle 'gmarik/vundle'
 
 " Currently playing around with:
 
-Bundle 'ervandew/screen'
-Bundle 'tomtom/quickfixsigns_vim'
+" Bundle 'mattn/zencoding-vim'
 Bundle 'sjl/gundo.vim'
-Bundle 'xaviershay/tslime.vim'
-Bundle 'ecomba/vim-ruby-refactoring'
-" Bundle 'vim-scripts/YankRing.vim'
-" Bundle 'jpalardy/vim-slime'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-characterize'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'nelstrom/vim-qargs'
+" requires matchit
+runtime macros/matchit.vim
+Bundle 'ecomba/vim-ruby-refactoring'
+" Bundle 'nelstrom/vim-textobj-rubyblock'
 
 " Essential bundles:
-
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 Bundle 'vim-scripts/AutoTag'
 Bundle 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = 'public/spree/products'
 
 " Nice bundles:
 
@@ -54,7 +59,7 @@ Bundle 'tpope/vim-commentary'
 " vim-snipmate and dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
+Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 
 " new syntax
@@ -63,6 +68,10 @@ Bundle 'tpope/vim-markdown'
 Bundle 'duwanis/tomdoc.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'groenewege/vim-less'
+
+" syntax checking
+Bundle 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list=1
 
 " ruby specific
 Bundle 'tpope/vim-rails'
@@ -79,14 +88,15 @@ Bundle 'kana/vim-textobj-line'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'lucapette/vim-textobj-underscore'
 
-runtime macros/matchit.vim
-Bundle 'nelstrom/vim-textobj-rubyblock'
-
 " colorschemes
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'rking/vim-detailed'
+
+" UI changes
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'tomtom/quickfixsigns_vim'
 
 
 
@@ -99,26 +109,23 @@ set number
 syntax enable
 
 if has('gui_running')
-  " set cursorline
-  " set cursorcolumn
-
   " no menubar etc
   set guioptions=
-
-  " Highlight trailing whitespace.
-  autocmd BufWinEnter * match Todo /\s\+$/
 else
   " for colorscheme solarized
-  let g:solarized_termcolors=256
+  " let g:solarized_termcolors=256
 endif
 
 " colorscheme molokai
 " colorscheme vividchalk
-colorscheme solarized
-set background=dark
-highlight SignColumn guibg=background
+colorscheme detailed
+" colorscheme solarized
+" set background=dark
+" highlight SignColumn guibg=background
+" highlight SignColumn ctermbg=8
 
 set laststatus=2 " always show the statusline
+set showcmd " show current command in statusline
 let g:Powerline_symbols = 'unicode'
 
 
@@ -138,7 +145,34 @@ set autoread " Automatically load changes to open files
 
 " Use spaces instead of tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set smarttab
 filetype indent plugin on
+set autoindent
+
+
+
+"
+" Editing and text display
+" ========================
+set backspace=indent,eol,start
+set showmatch
+" Make Y consistent with C and D.  See :help Y.
+nnoremap Y y$
+" Always show at least one line above/below the cursor
+set scrolloff=1
+set sidescrolloff=5
+set display+=lastline
+" Make whitespace prettier
+set list
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+    let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
+  endif
+endif
+" Timeout options for commands
+set ttimeout
+set ttimeoutlen=50
 
 
 
@@ -167,7 +201,8 @@ set completeopt=menu,preview
 " Environment Variables
 " =====================
 
-set shell=/bin/sh " ensures that ~/.zshrc is sourced, which loads rvm
+" ensures that ~/.zshrc is sourced
+set shell=/bin/sh
 
 
 
@@ -178,11 +213,12 @@ set shell=/bin/sh " ensures that ~/.zshrc is sourced, which loads rvm
 set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
 set shortmess+=A
+set backupskip=/tmp/*,/private/tmp/*
 
 
 
 "
-" DIFF SIGNS ON MARGIN
+" Diff signs on margin
 " ====================
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
@@ -212,19 +248,11 @@ autocmd BufReadPost *
 
 
 "
-" UNDO
+" Undo
 " ====
 
 set undolevels=10000
 if has("persistent_undo")
-  set undodir=~/.vim/undo       " Allow undoes to persist even after a file is closed
+  set undodir=~/.vim/undo " Allow undoes to persist even after a file is closed
   set undofile
 endif
-
-
-
-"
-" PASTE MODE TOGGLE
-" =================
-
-set pastetoggle=<F12>

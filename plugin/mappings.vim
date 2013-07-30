@@ -1,55 +1,45 @@
+set pastetoggle=<F12>
+
+
+
+let g:tmux_navigator_no_mappings = 1
+nmap <silent> <c-h> :TmuxNavigateLeft<cr>
+nmap <silent> <c-j> :TmuxNavigateDown<cr>
+nmap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:TmuxNavigateRight<CR><C-l>
+nmap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+
+
+nmap <leader>j :%!python -m json.tool
+vmap <leader>j :!python -m json.tool
+
+
+
+let g:gist_clip_command = 'pbcopy'
+let g:gist_open_browser_after_post = 1
+let g:gist_browser_command = 'open %URL%'
+
+
+
+" set paste toggle
+set pastetoggle=<F2>
+
+
+
+" re-highlight after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+
+
+" run rails_best_practices on current file
+nmap <leader>b :!rails_best_practices --without-color %<CR>
+
+
+
 " open markdown preview in background
-nmap <Leader>m :silent !/Applications/Marked.app/Contents/MacOS/Marked %&<CR>
-
-
-
-" Test-running stuff for zeus
-map <leader>S :call RunCurrentTest() <CR>
-map <leader>s :call RunCurrentLineInTest() <CR>
-
-function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-    call SelectTestRunner()
-  endif
-
-  exec g:last_test_runner g:last_test_file
-endfunction
-
-function! RunCurrentLineInTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFileWithLine()
-  end
-
-  exec g:last_test_runner g:last_test_file . ":" . g:last_test_file_line
-endfunction
-
-function! SelectTestRunner()
-  let zeus="zeus "
-  if match(expand('%'), '\.feature$') != -1
-    call SetTestRunner("!" . zeus . "cucumber")
-  elseif match(expand('%'), '_spec\.rb$') != -1
-    call SetTestRunner("!" . zeus . "rspec --no-color")
-  else
-    call SetTestRunner("!ruby -Itest")
-  endif
-endfunction
-
-function! SetTestRunner(runner)
-  let g:last_test_runner=a:runner
-endfunction
-
-function! SetTestFile()
-  let g:last_test_file=@%
-endfunction
-
-function! SetTestFileWithLine()
-  let g:last_test_file=@%
-  let g:last_test_file_line=line(".")
-endfunction
-
+nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
 
 
@@ -81,9 +71,8 @@ nnoremap - :Switch<cr>
 
 
 
-" Keyboard mappings
-" hide hightlighting on return
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+" hide highlighting
+" nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 
 
@@ -132,6 +121,14 @@ vmap <leader>A "hy:Ack! -iQ '<C-r>h'
 
 
 
+" grep
+" nmap <leader>g :grep -ir . --exclude-dir log --exclude-dir tmp '<cword>'<CR>
+" nmap <leader>G :grep -ir . --exclude-dir log --exclude-dir tmp ''<left>
+" vmap <leader>g "hy:grep -iQ '<C-r>h'<CR>
+" vmap <leader>G "hy:grep -iQ '<C-r>h'
+
+
+
 " visual star
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
@@ -158,14 +155,16 @@ nmap <leader>tw :%s/\s\+$//g<CR>
 
 
 " tidy html
-nmap <leader>T :%!tidy --tidy-mark no -indent --indent-spaces 2 -quiet 
+nmap <leader>T :%!tidy --tidy-mark no -indent --indent-spaces 2 -quiet -xml
+vmap <leader>T :'<,'>!tidy --tidy-mark no -indent --indent-spaces 2 -quiet -xml
 
 
 
 " Underline and comment
 " noremap <silent> <Leader>ul :t.\|s/\w\zs./=/g\|set nohl<cr>
-noremap <silent> <Leader>ul VU:t.<cr>v$r=
-imap \ul <Esc><Esc>VUyypv$r=gcckO<Esc>3jO
+nmap <Leader>ul VgUyypv$r=gck
+" noremap <silent> <Leader>ul VU:t.<cr>v$r=
+" imap \ul <Esc><Esc>VUyypv$r=gcckO<Esc>3jO
 
 
 
