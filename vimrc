@@ -23,7 +23,6 @@ Bundle 'gmarik/vundle'
 " Currently playing around with:
 
 " Bundle 'mattn/zencoding-vim'
-Bundle 'sjl/gundo.vim'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-characterize'
 Bundle 'mattn/webapi-vim'
@@ -34,6 +33,7 @@ Bundle 'nelstrom/vim-qargs'
 runtime macros/matchit.vim
 Bundle 'ecomba/vim-ruby-refactoring'
 " Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'tpope/vim-dispatch'
 
 " Essential bundles:
 Bundle 'scrooloose/nerdtree'
@@ -44,7 +44,6 @@ Bundle 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = 'public/spree/products'
 
 " Nice bundles:
-
 Bundle 'godlygeek/tabular'
 
 " Tim Pope's useful plugins
@@ -65,6 +64,8 @@ Bundle 'garbas/vim-snipmate'
 " new syntax
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-markdown'
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
+Bundle 'tpope/vim-haml'
 Bundle 'duwanis/tomdoc.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'groenewege/vim-less'
@@ -95,7 +96,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'rking/vim-detailed'
 
 " UI changes
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'tomtom/quickfixsigns_vim'
 
 
@@ -126,7 +127,6 @@ colorscheme detailed
 
 set laststatus=2 " always show the statusline
 set showcmd " show current command in statusline
-let g:Powerline_symbols = 'unicode'
 
 
 
