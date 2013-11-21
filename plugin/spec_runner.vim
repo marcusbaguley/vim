@@ -1,6 +1,6 @@
 " Test-running stuff for zeus
-map <leader>S :call RunCurrentTest() <CR>
-map <leader>s :call RunCurrentLineInTest() <CR>
+" map <leader>S :call RunCurrentTest() <CR>
+" map <leader>s :call RunCurrentLineInTest() <CR>
 
 function! RunCurrentTest()
   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1

@@ -21,24 +21,14 @@ Bundle 'gmarik/vundle'
 " ==================
 
 " Currently playing around with:
-
-" Bundle 'mattn/zencoding-vim'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-characterize'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'nelstrom/vim-qargs'
 " requires matchit
 runtime macros/matchit.vim
 Bundle 'ecomba/vim-ruby-refactoring'
-" Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'tpope/vim-dispatch'
 
 " Essential bundles:
 Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
-let g:ackprg = 'ag --nogroup --nocolor --column'
 Bundle 'vim-scripts/AutoTag'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = 'public/spree/products'
@@ -65,10 +55,9 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-markdown'
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
-Bundle 'tpope/vim-haml'
-Bundle 'duwanis/tomdoc.vim'
+" Bundle 'duwanis/tomdoc.vim'
 Bundle 'ap/vim-css-color'
-Bundle 'groenewege/vim-less'
+" Bundle 'groenewege/vim-less'
 
 " syntax checking
 Bundle 'scrooloose/syntastic'
@@ -81,6 +70,7 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'AndrewRadev/switch.vim'
+Bundle 'thoughtbot/vim-rspec'
 
 " textobjects
 Bundle 'kana/vim-textobj-user'
@@ -90,14 +80,14 @@ Bundle 'kana/vim-textobj-indent'
 Bundle 'lucapette/vim-textobj-underscore'
 
 " colorschemes
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'rking/vim-detailed'
 
-" UI changes
-Bundle 'bling/vim-airline'
-Bundle 'tomtom/quickfixsigns_vim'
+" Diff signs on margin
+" Bundle 'tomtom/quickfixsigns_vim'
+" highlight SignColumn guibg=background
+" highlight SignColumn ctermbg=8
+" let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
+" let g:quickfixsigns_balloon=0
 
 
 
@@ -109,23 +99,10 @@ set ruler
 set number
 syntax enable
 
-if has('gui_running')
-  " no menubar etc
-  set guioptions=
-else
-  " for colorscheme solarized
-  " let g:solarized_termcolors=256
-endif
+colorscheme solarized
+set background=dark
 
-" colorscheme molokai
-" colorscheme vividchalk
-colorscheme detailed
-" colorscheme solarized
-" set background=dark
-" highlight SignColumn guibg=background
-" highlight SignColumn ctermbg=8
-
-set laststatus=2 " always show the statusline
+" set laststatus=2 " always show the statusline
 set showcmd " show current command in statusline
 
 
@@ -172,7 +149,7 @@ if &listchars ==# 'eol:$'
 endif
 " Timeout options for commands
 set ttimeout
-set ttimeoutlen=50
+set ttimeoutlen=0
 
 
 
@@ -180,6 +157,7 @@ set ttimeoutlen=50
 " Searching
 " =========
 
+set grepprg=ag
 set hlsearch
 set incsearch
 set ignorecase
@@ -191,9 +169,9 @@ set smartcase
 " Autocomplete
 " ============
 
-set complete=.,b,u,]
-set wildmode=longest,list:longest
-set completeopt=menu,preview
+" set complete=.,b,u,]
+" set wildmode=longest,list:longest
+" set completeopt=menu,preview
 
 
 
@@ -201,7 +179,6 @@ set completeopt=menu,preview
 " Environment Variables
 " =====================
 
-" ensures that ~/.zshrc is sourced
 set shell=/bin/sh
 
 
@@ -214,15 +191,6 @@ set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
 set shortmess+=A
 set backupskip=/tmp/*,/private/tmp/*
-
-
-
-"
-" Diff signs on margin
-" ====================
-
-let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
-let g:quickfixsigns_balloon=0
 
 
 
