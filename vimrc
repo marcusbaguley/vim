@@ -20,21 +20,14 @@ Bundle 'gmarik/vundle'
 " Bundles for Vundle
 " ==================
 
-" Currently playing around with:
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'nelstrom/vim-qargs'
-" requires matchit
-runtime macros/matchit.vim
-Bundle 'ecomba/vim-ruby-refactoring'
-
-" Essential bundles:
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/AutoTag'
+" Fussy project wide file finder
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_custom_ignore = 'public/spree/products'
 
-" Nice bundles:
-Bundle 'godlygeek/tabular'
+" Project file side pane.
+Bundle 'scrooloose/nerdtree'
+
+" Update Ctags on save
+Bundle 'vim-scripts/AutoTag'
 
 " Tim Pope's useful plugins
 Bundle 'tpope/vim-unimpaired'
@@ -45,25 +38,34 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-commentary'
 
-" vim-snipmate and dependencies
+" Vim-snipmate and dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 
-" new syntax
+" New syntax
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-markdown'
-let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
-" Bundle 'duwanis/tomdoc.vim'
 Bundle 'ap/vim-css-color'
-" Bundle 'groenewege/vim-less'
 
-" syntax checking
+" Syntax checking on save
 Bundle 'scrooloose/syntastic'
-let g:syntastic_always_populate_loc_list=1
 
-" ruby specific
+" Navigate between tmux and vim panes easily
+Bundle 'christoomey/vim-tmux-navigator'
+
+" Populate the args list from the quickfix list
+Bundle 'nelstrom/vim-qargs'
+
+" Useful macros for refactoring ruby
+runtime macros/matchit.vim
+Bundle 'ecomba/vim-ruby-refactoring'
+
+" Align on characters eg :Tab /,
+Bundle 'godlygeek/tabular'
+
+" Ruby specific
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-bundler'
@@ -72,22 +74,18 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'thoughtbot/vim-rspec'
 
-" textobjects
+" Textobjects
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-line'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'lucapette/vim-textobj-underscore'
 
-" colorschemes
+" Colorschemes
 Bundle 'altercation/vim-colors-solarized'
 
-" Diff signs on margin
+" " Diff signs on margin
 " Bundle 'tomtom/quickfixsigns_vim'
-" highlight SignColumn guibg=background
-" highlight SignColumn ctermbg=8
-" let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
-" let g:quickfixsigns_balloon=0
 
 
 
@@ -139,7 +137,7 @@ nnoremap Y y$
 set scrolloff=1
 set sidescrolloff=5
 set display+=lastline
-" Make whitespace prettier
+" Make whitespace visable
 set list
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -157,11 +155,15 @@ set ttimeoutlen=0
 " Searching
 " =========
 
-set grepprg=ag
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+" ag is much faster than grep, and reads .gitignore
+" https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
 
 
 
@@ -169,9 +171,9 @@ set smartcase
 " Autocomplete
 " ============
 
-" set complete=.,b,u,]
-" set wildmode=longest,list:longest
-" set completeopt=menu,preview
+set complete=.,b,u,]
+set wildmode=longest,list:longest
+set completeopt=menu,preview
 
 
 
@@ -191,27 +193,6 @@ set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
 set shortmess+=A
 set backupskip=/tmp/*,/private/tmp/*
-
-
-
-"
-" VIMINFO: REMEMBER CERTAIN THINGS WHEN WE EXIT
-" =============================================
-
-" (http://vimdoc.sourceforge.net/htmldoc/usr_21.html)
-"   %    : saves and restores the buffer list
-"   '100 : marks will be remembered for up to 30 previously edited files
-"   /100 : save 100 lines from search history
-"   h    : disable hlsearch on start
-"   "500 : save up to 500 lines for each register
-"   :100 : up to 100 lines of command-line history will be remembered
-"   n... : where to save the viminfo files
-set viminfo=%100,'100,/100,h,\"500,:100,n~/.vim/viminfo
-" When opening a file, always jump to the last cursor position
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \     exe "normal g'\"" |
-    \ endif |
 
 
 
