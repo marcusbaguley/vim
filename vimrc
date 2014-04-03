@@ -20,11 +20,14 @@ Bundle 'gmarik/vundle'
 " Bundles for Vundle
 " ==================
 
-" Fussy project wide file finder
+Bundle 'AndrewRadev/splitjoin.vim'
+" Fuzzy project wide file finder
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-jdaddy'
 
 " Project file side pane.
 Bundle 'scrooloose/nerdtree'
+" Bundle 'tpope/vim-vinegar'
 
 " Update Ctags on save
 Bundle 'vim-scripts/AutoTag'
@@ -41,8 +44,8 @@ Bundle 'tpope/vim-commentary'
 " Vim-snipmate and dependencies
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
 " New syntax
 Bundle 'kchmck/vim-coffee-script'
@@ -50,7 +53,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'ap/vim-css-color'
 
 " Syntax checking on save
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 
 " Navigate between tmux and vim panes easily
 Bundle 'christoomey/vim-tmux-navigator'
@@ -111,6 +114,7 @@ set showcmd " show current command in statusline
 
 set hidden   " Buffers can be hidden and edited
 set autoread " Automatically load changes to open files
+autocmd BufNewFile,BufRead *.markdown,*.md setlocal spell
 
 
 
@@ -129,6 +133,9 @@ set autoindent
 "
 " Editing and text display
 " ========================
+" set nowrap
+" map j gj
+" map k gk
 set backspace=indent,eol,start
 set showmatch
 " Make Y consistent with C and D.  See :help Y.
@@ -182,6 +189,8 @@ set completeopt=menu,preview
 " =====================
 
 set shell=/bin/sh
+" ruby path if you are using rbenv
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
 
 

@@ -1,0 +1,50 @@
+##########################
+#     Tables             #
+##########################
+snippet table
+	.table-responsive
+	  %table.table
+	    %thead
+	      %tr
+	        %th ${5:$3}
+	        %th ${6:$4}
+	    %tbody
+	      - ${1:@collection}.each do |${2:item}|
+	        %tr
+	          %td= $2.${3}
+	          %td= $2.${4}
+snippet th
+	%th 
+snippet td
+	%td= 
+##########################
+#     Links              #
+##########################
+snippet button
+	= link_to '${1}', ${2:nil}, class: 'btn btn-${3:default}'${0}
+##########################
+#     Forms              #
+##########################
+snippet form_for
+	= form_for :test, url: root_path do |f|
+	  .form-group
+	    = f.label :name
+	    = f.text_field :name, class: 'form-control', placeholder: 'Enter name'
+	  .form-group
+	    = f.label :email_address
+	    = f.email_field :email_address, class: 'form-control', placeholder: 'Enter email'
+	  .form-group
+	    = f.label :password
+	    = f.password_field :password, class: 'form-control', placeholder: 'Password'
+	  .form-group
+	    = f.label :file
+	    = f.file_field :file
+	    %p.help-block Example block-level help text here.
+	  .checkbox
+	    %label
+	      = f.check_box :paid
+	      Paid
+	  .form-group
+	    = f.label :gender
+	    = f.select :gender, options_for_select(['male', 'female']), {include_blank: true}, {class: 'form-control'}
+	  = f.submit nil, class: 'btn btn-primary'

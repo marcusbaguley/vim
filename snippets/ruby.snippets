@@ -1,19 +1,33 @@
-snippet tom
-	# ${1:Public|Internal|Deprecated}: ${2:Duplicate some text an arbitrary number of times.}
-	#
-	# ${3:text - The String to be duplicated (default: nil).}
-	#
-	# ${4:Examples}
-	#
-	# ${5:Returns the duplicated String.}
-
 snippet task
 	desc "${1:A brief description of the rake tasks action.}"
 	task :${2:t}, [${3:args(eg, :file)}] => [${4:deps(eg, :environment)}] do |t, args|
 	  ${5:puts args[:file]}
 	end
-# rspec
-snippet assigns
-	assigns(:${1:variable}) { should ${2} }
+##########################
+#     Rspec              #
+##########################
+# snippet desc
+# 	describe ${1:`substitute(substitute(vim_snippets#Filename(), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+# snippet it
+# 	it '${1}' do
+# 	  ${0}
+# 	end
+snippet expect
+	expect(${1}).to eq ${2}
+snippet response
+	expect(response.code).to eq '${1:200}'
+snippet stub
+	allow(${1}).to receive(:${2}) { ${3} }
+snippet receive
+	expect(${1:object}).to receive(:${2}) { ${3} }
+snippet receive_any_instance
+	expect_any_instance_of(${1:Object}).to receive(:${2}) { ${3} }
 snippet change
 	change(${1:Model}, :${2:method}).by(${3})
+##########################
+#     Classes            #
+##########################
+snippet class
+	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+	  ${0}
+	end

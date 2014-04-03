@@ -1,3 +1,9 @@
+" Quick breakpoint (binding.pry)
+nmap <leader>b Obinding.pry<esc>
+nmap <leader>B :g/^\s*binding\.pry/d<CR>
+
+
+
 " Pretty json
 nmap <leader>j :%!python -m json.tool
 vmap <leader>j :!python -m json.tool
@@ -49,7 +55,7 @@ endfunction
 
 
 " searching and replace
-xnoremap <C-r> :<C-u>call <SID>VSetSearch()<CR>:,$s/<C-R>=@/<CR>//gc<left><left><left>
+vnoremap <C-r> :<C-u>call <SID>VSetSearch()<CR>:,$s/<C-R>=@/<CR>//gc<left><left><left>
 
 
 
