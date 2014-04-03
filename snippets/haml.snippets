@@ -27,9 +27,13 @@ snippet button
 ##########################
 snippet form_for
 	= form_for :test, url: root_path do |f|
+	  = f.hidden_field :person_id
 	  .form-group
 	    = f.label :name
 	    = f.text_field :name, class: 'form-control', placeholder: 'Enter name'
+	  .form-group
+	    = f.label :notes
+	    = f.text_area :notes, class: 'form-control', rows: '3', placeholder: 'Enter notes'
 	  .form-group
 	    = f.label :email_address
 	    = f.email_field :email_address, class: 'form-control', placeholder: 'Enter email'
@@ -46,5 +50,5 @@ snippet form_for
 	      Paid
 	  .form-group
 	    = f.label :gender
-	    = f.select :gender, options_for_select(['male', 'female']), {include_blank: true}, {class: 'form-control'}
+	    = f.select :gender, options_for_select(['male', 'female']), {prompt: 'Select a gender', include_blank: true}, {class: 'form-control'}
 	  = f.submit nil, class: 'btn btn-primary'
