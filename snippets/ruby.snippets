@@ -6,16 +6,22 @@ snippet task
 ##########################
 #     Rspec              #
 ##########################
-# snippet desc
-# 	describe ${1:`substitute(substitute(vim_snippets#Filename(), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
-# snippet it
-# 	it '${1}' do
-# 	  ${0}
-# 	end
+snippet desc
+	describe ${1:`substitute(substitute(expand('%:t'), '_spec.*', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+	  ${0}
+	end
+snippet it
+	it '${1}' do
+	  ${0}
+	end
 snippet expect
-	expect(${1}).to eq ${2}
+	expect(${1}).to eq 
 snippet response
 	expect(response.code).to eq '${1:200}'
+snippet redirect
+	expect(response).to redirect_to ${1}
+snippet assigns
+	expect(assigns(:${1}).to eq ${2}
 snippet stub
 	allow(${1}).to receive(:${2}) { ${3} }
 snippet receive
@@ -24,6 +30,8 @@ snippet receive_any_instance
 	expect_any_instance_of(${1:Object}).to receive(:${2}) { ${3} }
 snippet change
 	change(${1:Model}, :${2:method}).by(${3})
+snippet Fac
+	FactoryGirl.create :${1:factory}
 ##########################
 #     Classes            #
 ##########################

@@ -41,16 +41,22 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-commentary'
 
-" Vim-snipmate and dependencies
+" Vim-snipmate and dependencies - VimL but buggy
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+
+" python - but complete
+" Bundle 'sirver/ultisnips'
+" Bundle 'honza/vim-snippets'
 
 " New syntax
+Bundle 'heartsentwined/vim-emblem'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-markdown'
 Bundle 'ap/vim-css-color'
+Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle 'chase/vim-ansible-yaml'
 
 " Syntax checking on save
 " Bundle 'scrooloose/syntastic'
@@ -155,6 +161,8 @@ endif
 " Timeout options for commands
 set ttimeout
 set ttimeoutlen=0
+" Spelling on for mail
+autocmd FileType mail set spell
 
 
 

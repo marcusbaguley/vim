@@ -55,6 +55,7 @@ endfunction
 
 
 " searching and replace
+" vnoremap <C-r> "ry:,$S/<c-r>r//gc<left><left><left>
 vnoremap <C-r> :<C-u>call <SID>VSetSearch()<CR>:,$s/<C-R>=@/<CR>//gc<left><left><left>
 
 

@@ -67,7 +67,7 @@ nnoremap - :Switch<cr>
 " ====================
 
 let g:rspec_command = "!clear; zeus rspec {spec}"
-nmap <leader>R :let g:rspec_command = "!clear; zeus rspec {spec}"
+nmap <leader>R :let g:rspec_command = "!clear; bundle exec rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>

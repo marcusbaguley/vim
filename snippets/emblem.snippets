@@ -1,0 +1,51 @@
+# FORMS
+snippet form_for
+	form :test, url: root_path do |f|
+	  = f.hidden_field :person_id
+	  .form-group
+	    = f.label :name
+	    = f.text_field :name, class: 'form-control', placeholder: 'Enter name'
+	  .form-group
+	    = f.label :notes
+	    = f.text_area :notes, class: 'form-control', rows: '3', placeholder: 'Enter notes'
+	  .form-group
+	    = f.label :email_address
+	    = f.email_field :email_address, class: 'form-control', placeholder: 'Enter email'
+	  .form-group
+	    = f.label :password
+	    = f.password_field :password, class: 'form-control', placeholder: 'Password', required: 'required'
+	  .form-group
+	    = f.label :file
+	    = f.file_field :file
+	    %p.help-block Example block-level help text here.
+	  .form-group
+	    -# use checkbok-inline for inline
+	    .checkbox
+	      %label
+	        = f.check_box :paid
+	        Paid
+	  .form-group
+	    = f.label :gender
+	    = f.select :gender, options_for_select(['male', 'female']), {prompt: 'Select a gender', include_blank: true}, {class: 'form-control', required: 'required'}
+	  = f.label :gender
+	  .form-group
+	    -# use radio-inline for inline
+	    .radio
+	      %label
+	        = f.radio_button :gender, 'Male'
+	        Male
+	    -# use radio-inline for inline
+	    .radio
+	      %label
+	        = f.radio_button :gender, 'Female'
+	        Female
+	  = f.submit nil, class: 'btn btn-primary'
+snippet TextField
+	.form-group class=errors.${1:email}:has-error
+	  each errors.$1: .error: label.control-label ${2:Email} {{message}}
+	  view Ember.TextField class='form-control' value=$1 placeholder='${3:$2}:'
+snippet button
+	button.btn.btn-default type='submit' click=${1:action} ${2:Button Name}
+snippet link-to
+	= link-to '${1:route.path}' class='btn btn-default' | ${2:Button Name}
+
