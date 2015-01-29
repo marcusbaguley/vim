@@ -21,7 +21,7 @@ snippet response
 snippet redirect
 	expect(response).to redirect_to ${1}
 snippet assigns
-	expect(assigns(:${1}).to eq ${2}
+	expect(assigns(:${1})).to eq ${2}
 snippet stub
 	allow(${1}).to receive(:${2}) { ${3} }
 snippet receive

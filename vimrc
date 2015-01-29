@@ -20,14 +20,10 @@ Bundle 'gmarik/vundle'
 " Bundles for Vundle
 " ==================
 
-Bundle 'AndrewRadev/splitjoin.vim'
-" Fuzzy project wide file finder
-Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-jdaddy'
 
-" Project file side pane.
-Bundle 'scrooloose/nerdtree'
-" Bundle 'tpope/vim-vinegar'
+" Fuzzy project wide file finder
+Bundle 'kien/ctrlp.vim'
 
 " Update Ctags on save
 Bundle 'vim-scripts/AutoTag'
@@ -35,7 +31,7 @@ Bundle 'vim-scripts/AutoTag'
 " Tim Pope's useful plugins
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
+" Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
@@ -58,9 +54,6 @@ Bundle 'ap/vim-css-color'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'chase/vim-ansible-yaml'
 
-" Syntax checking on save
-" Bundle 'scrooloose/syntastic'
-
 " Navigate between tmux and vim panes easily
 Bundle 'christoomey/vim-tmux-navigator'
 
@@ -80,8 +73,6 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'AndrewRadev/switch.vim'
-Bundle 'thoughtbot/vim-rspec'
 
 " Textobjects
 Bundle 'kana/vim-textobj-user'
@@ -93,21 +84,19 @@ Bundle 'lucapette/vim-textobj-underscore'
 " Colorschemes
 Bundle 'altercation/vim-colors-solarized'
 
-" " Diff signs on margin
-" Bundle 'tomtom/quickfixsigns_vim'
-
 
 
 "
 " GUI options
 " ===========
 
-set ruler
-set number
+" set ruler
+" set number
 syntax enable
 
 colorscheme solarized
-set background=dark
+" set background=dark
+set background=light
 
 " set laststatus=2 " always show the statusline
 set showcmd " show current command in statusline
@@ -121,6 +110,7 @@ set showcmd " show current command in statusline
 set hidden   " Buffers can be hidden and edited
 set autoread " Automatically load changes to open files
 autocmd BufNewFile,BufRead *.markdown,*.md setlocal spell
+autocmd BufNewFile,BufRead *_spec.rb compiler! rspec | set makeprg=clear;\ zeus\ rspec
 
 
 
@@ -170,14 +160,15 @@ autocmd FileType mail set spell
 " Searching
 " =========
 
-set hlsearch
-set incsearch
+" set hlsearch
+" set incsearch
 set ignorecase
 set smartcase
 " ag is much faster than grep, and reads .gitignore
 " https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m"
 endif
 
 

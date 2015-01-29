@@ -1,6 +1,5 @@
-" Quick breakpoint (binding.pry)
-nmap <leader>b Obinding.pry<esc>
-nmap <leader>B :g/^\s*binding\.pry/d<CR>
+" :Explore
+nnoremap - :Explore<cr>
 
 
 
@@ -16,27 +15,8 @@ vnoremap > >gv
 
 
 
-" navigate tabs
-nnoremap ]t :tabnext<CR>
-nnoremap [t :tabprevious<CR>
-
-
-
-" hide highlighting
-" nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-
-
 " grep
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow 20|redraw!
-nmap <leader>g :Ag<space>
-vnoremap <leader>g "hy:Ag '<C-r>h'
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 

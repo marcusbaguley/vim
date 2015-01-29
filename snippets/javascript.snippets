@@ -1,0 +1,19 @@
+# On HTML content loaded
+snippet DOMContentLoaded
+	document.addEventListener('DOMContentLoaded', function(){
+	  ${0}
+	});
+# Selectors
+snippet id
+	getElementById('${1}')
+snippet class
+	getElementsByClassName('${1}')
+snippet addEventListener
+	addEventListener('${1:change}', function(event){
+	  ${0}
+	});
+# Standard constructs
+snippet forEach
+	forEach(function(${1:item}){
+	  ${0}
+	});
