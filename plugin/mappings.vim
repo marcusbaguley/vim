@@ -1,3 +1,8 @@
+" Insert current line
+let @l="=line('.')"
+
+
+
 " :Explore
 nnoremap - :Explore<cr>
 

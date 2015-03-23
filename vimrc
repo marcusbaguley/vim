@@ -1,4 +1,5 @@
-set nocompatible
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 
 
@@ -6,83 +7,106 @@ set nocompatible
 " Vundle
 " ======
 
-filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 
 
 "
-" Bundles for Vundle
+" Plugins for Vundle
 " ==================
 
-Bundle 'tpope/vim-jdaddy'
+" Trying out stage
+" Plugin 'tpope/vim-jdaddy'
+Plugin 'mattn/emmet-vim'
 
 " Fuzzy project wide file finder
-Bundle 'kien/ctrlp.vim'
+Plugin 'thoughtbot/pick.vim'
+
+" Run specs quickly and remember last spec run
+Plugin 'thoughtbot/vim-rspec'
 
 " Update Ctags on save
-Bundle 'vim-scripts/AutoTag'
+" Plugin 'craigemery/vim-autotag' " Broken
+" Plugin 'ludovicchabant/vim-gutentags' " Slow and runs everywhere
 
 " Tim Pope's useful plugins
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-fugitive'
-" Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-commentary'
+" Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
 
 " Vim-snipmate and dependencies - VimL but buggy
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 
 " python - but complete
-" Bundle 'sirver/ultisnips'
-" Bundle 'honza/vim-snippets'
+" Plugin 'sirver/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " New syntax
-Bundle 'heartsentwined/vim-emblem'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-markdown'
-Bundle 'ap/vim-css-color'
-Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'chase/vim-ansible-yaml'
+Plugin 'heartsentwined/vim-emblem'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-markdown'
+Plugin 'ap/vim-css-color'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'vim-scripts/applescript.vim'
 
 " Navigate between tmux and vim panes easily
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Populate the args list from the quickfix list
-Bundle 'nelstrom/vim-qargs'
+Plugin 'nelstrom/vim-qargs'
 
 " Useful macros for refactoring ruby
 runtime macros/matchit.vim
-Bundle 'ecomba/vim-ruby-refactoring'
+Plugin 'ecomba/vim-ruby-refactoring'
 
 " Align on characters eg :Tab /,
-Bundle 'godlygeek/tabular'
-
-" Ruby specific
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-endwise'
-Bundle 'vim-ruby/vim-ruby'
-
-" Textobjects
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'kana/vim-textobj-line'
-Bundle 'kana/vim-textobj-indent'
-Bundle 'lucapette/vim-textobj-underscore'
+" Plugin 'godlygeek/tabular'
 
 " Colorschemes
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
+
+" Ruby specific
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
+Plugin 'vim-ruby/vim-ruby'
+
+" Textobjects
+" Plugin 'kana/vim-textobj-user'
+" Plugin 'kana/vim-textobj-entire'
+" Plugin 'kana/vim-textobj-line'
+" Plugin 'kana/vim-textobj-indent'
+" Plugin 'lucapette/vim-textobj-underscore'
+
+
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 
 
@@ -95,11 +119,10 @@ Bundle 'altercation/vim-colors-solarized'
 syntax enable
 
 colorscheme solarized
-" set background=dark
-set background=light
-
+set background=dark
+" set background=light
 " set laststatus=2 " always show the statusline
-set showcmd " show current command in statusline
+" set showcmd " show current command in statusline
 
 
 
@@ -109,8 +132,10 @@ set showcmd " show current command in statusline
 
 set hidden   " Buffers can be hidden and edited
 set autoread " Automatically load changes to open files
+autocmd FileType mail set spell " Spelling on for mail
+autocmd FileType gitcommit set spell " Spelling on for Git commits
 autocmd BufNewFile,BufRead *.markdown,*.md setlocal spell
-autocmd BufNewFile,BufRead *_spec.rb compiler! rspec | set makeprg=clear;\ zeus\ rspec
+autocmd BufNewFile,BufRead *_spec.rb compiler! rspec | set makeprg=clear;\ bundle\ exec\ rspec
 
 
 
@@ -129,9 +154,6 @@ set autoindent
 "
 " Editing and text display
 " ========================
-" set nowrap
-" map j gj
-" map k gk
 set backspace=indent,eol,start
 set showmatch
 " Make Y consistent with C and D.  See :help Y.
@@ -151,8 +173,9 @@ endif
 " Timeout options for commands
 set ttimeout
 set ttimeoutlen=0
-" Spelling on for mail
-autocmd FileType mail set spell
+" Highlight 80th column to indicate code should not be at/past that point
+" set textwidth=79 " default max width
+" set colorcolumn=+1
 
 
 
@@ -209,7 +232,7 @@ set backupskip=/tmp/*,/private/tmp/*
 " ====
 
 set undolevels=10000
-if has("persistent_undo")
-  set undodir=~/.vim/undo " Allow undoes to persist even after a file is closed
-  set undofile
-endif
+" if has("persistent_undo")
+set undodir=~/.vim/undo " Allow undoes to persist even after a file is closed
+set undofile
+" endif

@@ -1,5 +1,21 @@
 snippet -
 	<% ${1} %>${2}
+snippet =
+	<%= ${1} %>${2}
+snippet if
+	<% if ${1} %>
+snippet else
+	<% else %>
+snippet end
+	<% end %>
+snippet <
+	<${1:p}>${2}</$1>
+snippet .
+	<div class="${1}">${2}</div>
+snippet div
+	<div>${1}</div>
+snippet p
+	<p>${1}</p>
 snippet fore
 	<% for ${1:item} in @$1s %>
 	  ${2}

@@ -1,18 +1,19 @@
 "
-" kien/ctrlp.vim
-" ==============
+" thoughtbot/vim-rspec
+" ====================
 
-map <leader>] :CtrlP<CR>
-map <leader>} :CtrlPLine<CR>
-" Use The Silver Searcher
-" https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
+let g:rspec_command = "!clear; zeus rspec {spec}"
+" let g:rspec_command = "Make {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
 
+
+
+"
+" thoughtbot/pick.vim
+" ===================
+
+nnoremap <Leader>] :call PickFile()<CR>
 
 
 "

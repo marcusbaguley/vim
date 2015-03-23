@@ -1,15 +1,15 @@
-# camfowler's Vim for [Rails](http://rubyonrails.org/)
+# camfowler's Vim for (predominantly) [Rails](http://rubyonrails.org/)
 
-$ `git clone https://github.com/camfowler/vim.git ~/.vim`
+4 simple commands will get you vimming in no time!
 
-$ `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+```sh
+git clone https://github.com/camfowler/vim.git ~/.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+vim +PluginInstall +qa
+```
 
-$ `ln -s ~/.vim/vimrc ~/.vimrc`
-
-Then, from inside Vim, run a
-`:BundleInstall`
-
-Restart Vim, and you are ready to go!
+Enjoy!
 
 See [Vundle](https://github.com/gmarik/vundle/) for more information.
 
