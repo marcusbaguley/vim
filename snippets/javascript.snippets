@@ -1,3 +1,6 @@
+# Misc
+snippet console.log
+	console.log(${1:"test"});${0}
 # On HTML content loaded
 snippet DOMContentLoaded
 	document.addEventListener('DOMContentLoaded', function(){
@@ -8,12 +11,20 @@ snippet id
 	getElementById('${1}')
 snippet class
 	getElementsByClassName('${1}')
-snippet addEventListener
-	addEventListener('${1:change}', function(event){
+snippet add
+	addEventListener('${1:input}', function(event){
 	  ${0}
 	});
 # Standard constructs
+# snippet forEach
+# 	forEach(function(${1:item}){
+# 	  ${0}
+# 	});
 snippet forEach
-	forEach(function(${1:item}){
+	Array.prototype.forEach.call(${1:elements}, function(${2:element}) {
 	  ${0}
 	});
+snippet function
+	function ${1:myFunction}(${2}) {
+	  ${0}
+	}

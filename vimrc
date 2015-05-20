@@ -21,20 +21,35 @@ Plugin 'gmarik/Vundle.vim'
 " ==================
 
 " Trying out stage
-" Plugin 'tpope/vim-jdaddy'
+" Plugin 'scrooloose/syntastic'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 Plugin 'mattn/emmet-vim'
+
+" Populate the args list from the quickfix list
+" Plugin 'nelstrom/vim-qargs'
+
+" Useful macros for refactoring ruby
+" runtime macros/matchit.vim
+" Plugin 'ecomba/vim-ruby-refactoring'
 
 " Fuzzy project wide file finder
 Plugin 'thoughtbot/pick.vim'
-
-" Run specs quickly and remember last spec run
-Plugin 'thoughtbot/vim-rspec'
 
 " Update Ctags on save
 " Plugin 'craigemery/vim-autotag' " Broken
 " Plugin 'ludovicchabant/vim-gutentags' " Slow and runs everywhere
 
+" Run specs quickly and remember last spec run
+Plugin 'thoughtbot/vim-rspec'
+
 " Tim Pope's useful plugins
+" Plugin 'tpope/vim-jdaddy'
 " Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-surround'
@@ -42,16 +57,27 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-projectionist'
+
+" Ruby specific
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
+Plugin 'vim-ruby/vim-ruby'
 
 " Vim-snipmate and dependencies - VimL but buggy
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+" Plugin 'SirVer/ultisnips'
 
-" python - but complete
-" Plugin 'sirver/ultisnips'
-" Plugin 'honza/vim-snippets'
+" Navigate between tmux and vim panes easily
+Plugin 'christoomey/vim-tmux-navigator'
 
+" NO CORE CHANGES TO VIM USAGE
+" ============================
+"
 " New syntax
 Plugin 'heartsentwined/vim-emblem'
 Plugin 'kchmck/vim-coffee-script'
@@ -62,36 +88,8 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/applescript.vim'
 
-" Navigate between tmux and vim panes easily
-Plugin 'christoomey/vim-tmux-navigator'
-
-" Populate the args list from the quickfix list
-Plugin 'nelstrom/vim-qargs'
-
-" Useful macros for refactoring ruby
-runtime macros/matchit.vim
-Plugin 'ecomba/vim-ruby-refactoring'
-
-" Align on characters eg :Tab /,
-" Plugin 'godlygeek/tabular'
-
 " Colorschemes
 Plugin 'altercation/vim-colors-solarized'
-
-" Ruby specific
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-endwise'
-Plugin 'vim-ruby/vim-ruby'
-
-" Textobjects
-" Plugin 'kana/vim-textobj-user'
-" Plugin 'kana/vim-textobj-entire'
-" Plugin 'kana/vim-textobj-line'
-" Plugin 'kana/vim-textobj-indent'
-" Plugin 'lucapette/vim-textobj-underscore'
-
 
 
 call vundle#end()            " required
@@ -122,7 +120,6 @@ colorscheme solarized
 set background=dark
 " set background=light
 " set laststatus=2 " always show the statusline
-" set showcmd " show current command in statusline
 
 
 
@@ -132,10 +129,6 @@ set background=dark
 
 set hidden   " Buffers can be hidden and edited
 set autoread " Automatically load changes to open files
-autocmd FileType mail set spell " Spelling on for mail
-autocmd FileType gitcommit set spell " Spelling on for Git commits
-autocmd BufNewFile,BufRead *.markdown,*.md setlocal spell
-autocmd BufNewFile,BufRead *_spec.rb compiler! rspec | set makeprg=clear;\ bundle\ exec\ rspec
 
 
 
@@ -200,9 +193,9 @@ endif
 " Autocomplete
 " ============
 
-set complete=.,b,u,]
-set wildmode=longest,list:longest
-set completeopt=menu,preview
+" set complete=.,b,u,]
+" set wildmode=longest,list:longest
+" set completeopt=menu,preview
 
 
 
