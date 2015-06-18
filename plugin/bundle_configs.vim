@@ -1,16 +1,4 @@
 "
-" thoughtbot/vim-rspec
-" ====================
-
-let g:rspec_command = "!clear; zeus rspec {spec}"
-" let g:rspec_command = "!clear; bundle exec rspec {spec}"
-" let g:rspec_command = "Make {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-
-
-
-"
 " thoughtbot/pick.vim
 " ===================
 

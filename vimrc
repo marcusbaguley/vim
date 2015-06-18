@@ -21,15 +21,9 @@ Plugin 'gmarik/Vundle.vim'
 " ==================
 
 " Trying out stage
-" Plugin 'scrooloose/syntastic'
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 Plugin 'mattn/emmet-vim'
+Plugin 'reedes/vim-wordy'
+Plugin 'diepm/vim-rest-console'
 
 " Populate the args list from the quickfix list
 " Plugin 'nelstrom/vim-qargs'
@@ -44,9 +38,6 @@ Plugin 'thoughtbot/pick.vim'
 " Update Ctags on save
 " Plugin 'craigemery/vim-autotag' " Broken
 " Plugin 'ludovicchabant/vim-gutentags' " Slow and runs everywhere
-
-" Run specs quickly and remember last spec run
-Plugin 'thoughtbot/vim-rspec'
 
 " Tim Pope's useful plugins
 " Plugin 'tpope/vim-jdaddy'
