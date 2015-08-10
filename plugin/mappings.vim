@@ -1,6 +1,25 @@
+" Swap hash comment for the one after
+nmap <leader># I# <esc>_dt#$pxF#i <esc>_xx
+
+" Copy & paste to system clipboard with <Leader>p and <Leader>y:
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+nmap <Leader>y "+y
+nmap <Leader>Y "+Y
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+nmap <Leader>d "+d
+nmap <Leader>D "+D
+
+
+
+
 " Quick make current file
-nmap <leader>m :make! %:=line('.')<CR><CR>
-nmap <leader>M :make! %<CR>
+nmap <leader>m :Make %:=line('.')<CR><CR>
+nmap <leader>M :Make! %<CR>
 
 
 
@@ -62,14 +81,14 @@ vmap <leader>T :'<,'>!tidy --tidy-mark no -indent --indent-spaces 2 -quiet -xml
 
 
 
-" Center the display line after searches
-" (This makes it *much* easier to see the matched line)
-"
-" More info: http://www.vim.org/tips/tip.php?tip_id=528
-"
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
+" " Center the display line after searches
+" " (This makes it *much* easier to see the matched line)
+" "
+" " More info: http://www.vim.org/tips/tip.php?tip_id=528
+" "
+" nnoremap n nzz
+" nnoremap N Nzz
+" nnoremap * *zz
+" nnoremap # #zz
+" nnoremap g* g*zz
+" nnoremap g# g#zz

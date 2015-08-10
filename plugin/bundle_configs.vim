@@ -18,8 +18,8 @@ let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', '
 " ==============================
 
 let g:tmux_navigator_no_mappings = 1
-nmap <silent> <c-h> :TmuxNavigateLeft<cr>
-nmap <silent> <c-j> :TmuxNavigateDown<cr>
-nmap <silent> <c-k> :TmuxNavigateUp<cr>
-nmap <silent> <C-l> :TmuxNavigateRight<cr>
-nmap <silent> <c-\> :TmuxNavigatePrevious<cr>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>

@@ -1,11 +1,8 @@
+" vim:fdm=marker
+
+" Vundle {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-
-
-"
-" Vundle
-" ======
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -13,12 +10,9 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+" }}}
 
-
-
-"
-" Plugins for Vundle
-" ==================
+" Plugins for Vundle {{{
 
 " Trying out stage
 Plugin 'mattn/emmet-vim'
@@ -40,6 +34,7 @@ Plugin 'thoughtbot/pick.vim'
 " Plugin 'ludovicchabant/vim-gutentags' " Slow and runs everywhere
 
 " Tim Pope's useful plugins
+Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-jdaddy'
 " Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
@@ -96,13 +91,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" }}}
 
-
-
-"
-" GUI options
-" ===========
-
+" GUI options {{{
 " set ruler
 " set number
 syntax enable
@@ -111,33 +102,22 @@ colorscheme solarized
 set background=dark
 " set background=light
 " set laststatus=2 " always show the statusline
+" }}}
 
-
-
-"
-" Buffer Options
-" ==============
-
+" Buffer Options {{{
 set hidden   " Buffers can be hidden and edited
 set autoread " Automatically load changes to open files
+" }}}
 
-
-
-"
-" Formatting and indentation
-" ==========================
-
+" Formatting and indentation {{{
 " Use spaces instead of tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set smarttab
 filetype indent plugin on
 set autoindent
+" }}}
 
-
-
-"
-" Editing and text display
-" ========================
+" Editing and text display {{{
 set backspace=indent,eol,start
 set showmatch
 " Make Y consistent with C and D.  See :help Y.
@@ -160,15 +140,11 @@ set ttimeoutlen=0
 " Highlight 80th column to indicate code should not be at/past that point
 " set textwidth=79 " default max width
 " set colorcolumn=+1
+" }}}
 
-
-
-"
-" Searching
-" =========
-
+" Searching {{{
 " set hlsearch
-" set incsearch
+set incsearch
 set ignorecase
 set smartcase
 " ag is much faster than grep, and reads .gitignore
@@ -177,46 +153,31 @@ if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
   set grepformat=%f:%l:%c:%m"
 endif
+" }}}
 
-
-
-"
-" Autocomplete
-" ============
-
+" Autocomplete {{{
 " set complete=.,b,u,]
 " set wildmode=longest,list:longest
 " set completeopt=menu,preview
+" }}}
 
-
-
-"
-" Environment Variables
-" =====================
-
-set shell=/bin/sh
+" Environment Variables {{{
+" set shell=/bin/sh
 " ruby path if you are using rbenv
 let g:ruby_path = system('echo $HOME/.rbenv/shims')
+" }}}
 
-
-
-"
-" Swap files
-" =========================
-
+" Swap files {{{
 set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
 set shortmess+=A
 set backupskip=/tmp/*,/private/tmp/*
+" }}}
 
-
-
-"
-" Undo
-" ====
-
+" Undo {{{
 set undolevels=10000
 " if has("persistent_undo")
 set undodir=~/.vim/undo " Allow undoes to persist even after a file is closed
 set undofile
 " endif
+" }}}
