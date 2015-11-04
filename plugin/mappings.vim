@@ -39,12 +39,6 @@ vmap <leader>j :!python -m json.tool
 
 
 
-" re-highlight after indenting
-vnoremap < <gv
-vnoremap > >gv
-
-
-
 " grep
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow 20|redraw!
 " bind K to grep word under cursor

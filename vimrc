@@ -27,7 +27,8 @@ Plugin 'diepm/vim-rest-console'
 " Plugin 'ecomba/vim-ruby-refactoring'
 
 " Fuzzy project wide file finder
-Plugin 'thoughtbot/pick.vim'
+" Plugin 'thoughtbot/pick.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Update Ctags on save
 " Plugin 'craigemery/vim-autotag' " Broken
@@ -38,7 +39,7 @@ Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-jdaddy'
 " Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
@@ -73,6 +74,7 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/applescript.vim'
+Plugin 'tmux-plugins/vim-tmux'
 
 " Colorschemes
 Plugin 'altercation/vim-colors-solarized'
@@ -98,8 +100,8 @@ filetype plugin indent on    " required
 " set number
 syntax enable
 
-colorscheme solarized
-set background=dark
+" colorscheme solarized
+" set background=dark
 " set background=light
 " set laststatus=2 " always show the statusline
 " }}}
@@ -173,6 +175,15 @@ set directory=~/.vim/swp-files
 set shortmess+=A
 set backupskip=/tmp/*,/private/tmp/*
 " }}}
+
+
+" TOhtml settings {{{
+let g:html_number_lines = 1
+" let g:html_dynamic_folds = 0
+" let g:html_no_foldcolumn = 1
+let g:html_prevent_copy = "n"
+" }}}
+
 
 " Undo {{{
 set undolevels=10000
