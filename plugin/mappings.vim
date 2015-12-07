@@ -18,8 +18,8 @@ nmap <Leader>D "+D
 
 
 " Quick make current file
-nmap <leader>m :Make %:=line('.')<CR><CR>
-nmap <leader>M :Make! %<CR>
+nmap <leader>m :make! %:=line('.')<CR><CR>
+nmap <leader>M :make! %<CR>
 
 
 
@@ -72,17 +72,3 @@ nmap <leader>w :%s/\s\+$//g<CR>
 " tidy html
 nmap <leader>T :%!tidy --tidy-mark no -indent --indent-spaces 2 -quiet -xml
 vmap <leader>T :'<,'>!tidy --tidy-mark no -indent --indent-spaces 2 -quiet -xml
-
-
-
-" " Center the display line after searches
-" " (This makes it *much* easier to see the matched line)
-" "
-" " More info: http://www.vim.org/tips/tip.php?tip_id=528
-" "
-" nnoremap n nzz
-" nnoremap N Nzz
-" nnoremap * *zz
-" nnoremap # #zz
-" nnoremap g* g*zz
-" nnoremap g# g#zz

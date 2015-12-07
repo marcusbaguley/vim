@@ -16,8 +16,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " Trying out stage
 Plugin 'mattn/emmet-vim'
-Plugin 'reedes/vim-wordy'
 Plugin 'diepm/vim-rest-console'
+Plugin 'tpope/vim-vinegar'
 
 " Populate the args list from the quickfix list
 " Plugin 'nelstrom/vim-qargs'
@@ -27,15 +27,15 @@ Plugin 'diepm/vim-rest-console'
 " Plugin 'ecomba/vim-ruby-refactoring'
 
 " Fuzzy project wide file finder
-" Plugin 'thoughtbot/pick.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'thoughtbot/pick.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 
 " Update Ctags on save
 " Plugin 'craigemery/vim-autotag' " Broken
 " Plugin 'ludovicchabant/vim-gutentags' " Slow and runs everywhere
 
 " Tim Pope's useful plugins
-Plugin 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-jdaddy'
 " Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
@@ -51,7 +51,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-endwise'
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-ruby/vim-ruby'
 
 " Vim-snipmate and dependencies - VimL but buggy
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -66,18 +66,19 @@ Plugin 'christoomey/vim-tmux-navigator'
 " ============================
 "
 " New syntax
-Plugin 'heartsentwined/vim-emblem'
+" Plugin 'heartsentwined/vim-emblem'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'mustache/vim-mustache-handlebars'
+" Plugin 'chase/vim-ansible-yaml'
+Plugin 'pearofducks/ansible-vim'
+" Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/applescript.vim'
 Plugin 'tmux-plugins/vim-tmux'
 
 " Colorschemes
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 
 
 call vundle#end()            " required
@@ -96,7 +97,6 @@ filetype plugin indent on    " required
 " }}}
 
 " GUI options {{{
-" set ruler
 " set number
 syntax enable
 
@@ -107,13 +107,14 @@ syntax enable
 " }}}
 
 " Buffer Options {{{
-set hidden   " Buffers can be hidden and edited
-set autoread " Automatically load changes to open files
+" set hidden   " Buffers can be hidden and edited
+" set autoread " Automatically load changes to open files
 " }}}
 
 " Formatting and indentation {{{
 " Use spaces instead of tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" set ts=2 sw=2 expandtab
 set smarttab
 filetype indent plugin on
 set autoindent
@@ -121,7 +122,7 @@ set autoindent
 
 " Editing and text display {{{
 set backspace=indent,eol,start
-set showmatch
+" set showmatch
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
 " Always show at least one line above/below the cursor

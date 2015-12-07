@@ -2,7 +2,7 @@
 " kien/ctrlp.vim
 " ==============
 
-map <leader>] :CtrlP<CR>
+" map <leader>] :CtrlP<CR>
 " Use The Silver Searcher
 " https://github.com/ggreer/the_silver_searcher
 " if executable('ag')
@@ -18,7 +18,7 @@ map <leader>] :CtrlP<CR>
 " thoughtbot/pick.vim
 " ===================
 
-" nnoremap <Leader>] :call PickFile()<CR>
+nnoremap <Leader>] :call PickFile()<CR>
 
 
 
