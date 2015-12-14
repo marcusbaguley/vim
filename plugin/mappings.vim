@@ -1,3 +1,6 @@
+" Project wide search and replace
+" map <leader>g grep! searchterm -r . | cfdo S/searchterm/replacedterm/gc | up
+
 " Swap hash comment for the one after
 nmap <leader># I# <esc>_dt#$pxF#i <esc>_xx
 

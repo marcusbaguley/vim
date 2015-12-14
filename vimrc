@@ -19,9 +19,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'diepm/vim-rest-console'
 Plugin 'tpope/vim-vinegar'
 
-" Populate the args list from the quickfix list
-" Plugin 'nelstrom/vim-qargs'
-
 " Useful macros for refactoring ruby
 " runtime macros/matchit.vim
 " Plugin 'ecomba/vim-ruby-refactoring'
