@@ -1,7 +1,7 @@
 snippet task
-	desc '${1:A brief description of the rake tasks action.}'
-	task :${2:task_name}, [${3::arg1, :arg2}] => [${4::environment}] do |t, args|
-	  ${5:puts args[:arg1]}
+	desc 'Import a file. Usage: \`rake import["numbers.csv"]\`'
+	task :import, [:file_path] => [:environment] do |t, args|
+		puts args[:file_path]
 	end
 ##########################
 #     Rspec              #
@@ -39,3 +39,16 @@ snippet class
 	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
 	  ${0}
 	end
+##########################
+#     Documentation      #
+##########################
+snippet ########################################################################
+	########################################################################
+	# File::    ${1:`expand('%:t')`}
+	# (C)::     Loyalty New Zealand `strftime("%Y")`
+	#
+	# Purpose:: ${2}
+	# ----------------------------------------------------------------------
+	#           ${3:`strftime("%d-%b-%Y")`} (CRF): ${0}
+	########################################################################
+

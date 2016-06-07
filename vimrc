@@ -15,9 +15,10 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins for Vundle {{{
 
 " Trying out stage
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
+Plugin 'fatih/vim-go'
 Plugin 'diepm/vim-rest-console'
-Plugin 'tpope/vim-vinegar'
+Bundle 'wellle/tmux-complete.vim'
 
 " Useful macros for refactoring ruby
 " runtime macros/matchit.vim
@@ -25,23 +26,24 @@ Plugin 'tpope/vim-vinegar'
 
 " Fuzzy project wide file finder
 Plugin 'thoughtbot/pick.vim'
-" Plugin 'ctrlpvim/ctrlp.vim'
 
 " Update Ctags on save
 " Plugin 'craigemery/vim-autotag' " Broken
 " Plugin 'ludovicchabant/vim-gutentags' " Slow and runs everywhere
 
 " Tim Pope's useful plugins
-" Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-jdaddy'
 " Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-surround'
 " Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-vinegar'
 
 " Ruby specific
 Plugin 'tpope/vim-rails'
@@ -54,6 +56,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+" Ultisnips is python but more functional
 " Plugin 'SirVer/ultisnips'
 
 " Navigate between tmux and vim panes easily
@@ -63,20 +66,15 @@ Plugin 'christoomey/vim-tmux-navigator'
 " ============================
 "
 " New syntax
-" Plugin 'heartsentwined/vim-emblem'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-markdown'
 Plugin 'ap/vim-css-color'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-" Plugin 'chase/vim-ansible-yaml'
 Plugin 'pearofducks/ansible-vim'
-" Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-scripts/applescript.vim'
 Plugin 'tmux-plugins/vim-tmux'
 
 " Colorschemes
 " Plugin 'altercation/vim-colors-solarized'
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -111,7 +109,7 @@ syntax enable
 " Formatting and indentation {{{
 " Use spaces instead of tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-" set ts=2 sw=2 expandtab
+set ts=2 sw=2 expandtab
 set smarttab
 filetype indent plugin on
 set autoindent
@@ -140,6 +138,7 @@ set ttimeoutlen=0
 " Highlight 80th column to indicate code should not be at/past that point
 " set textwidth=79 " default max width
 " set colorcolumn=+1
+set formatoptions+=j " see :h fo-table
 " }}}
 
 " Searching {{{
@@ -147,11 +146,9 @@ set ttimeoutlen=0
 set incsearch
 set ignorecase
 set smartcase
-" ag is much faster than grep, and reads .gitignore
-" https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  set grepprg=ag\ --vimgrep\ $*
-  set grepformat=%f:%l:%c:%m"
+" If this is a git directory, use git's grep instead
+if !empty(glob('.git'))
+  set grepprg=git\ grep\ --line-number\ $*
 endif
 " }}}
 
@@ -190,3 +187,6 @@ set undodir=~/.vim/undo " Allow undoes to persist even after a file is closed
 set undofile
 " endif
 " }}}
+
+" set clipboard+=unnamed
+set iskeyword+=-

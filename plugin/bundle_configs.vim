@@ -1,4 +1,23 @@
 "
+" tpope/vim-dispatch
+" ==================
+" After running a build, use cg to clean up the output to only list errors.
+nmap <leader>m :Make %\:=line('.')<CR><CR>
+nmap <leader>M :Make %<CR>
+" See ~/.vim/ftdetect/rspec.vim for this binding.
+" nmap <leader>s :Start bundle exec rspec %\:=line('.')<CR><CR>
+
+
+
+
+"
+" fatih/vim-go
+" ============
+let g:go_fmt_command = "goimports"
+
+
+
+"
 " kien/ctrlp.vim
 " ==============
 

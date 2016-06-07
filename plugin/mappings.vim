@@ -1,3 +1,22 @@
+" Rdoc coverage on this file.
+nnoremap <leader>r :!rdoc -C1 %<CR>
+
+" Rspec extract variable into let
+function! PromoteToLet()
+  " normal! dd
+  " :exec '?^\s*it\>'
+  " normal! P
+  .s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  normal ==
+endfunction
+command! PromoteToLet :call PromoteToLet()
+map <leader>l :PromoteToLet<cr>
+
+
+
+
+
+
 " Project wide search and replace
 " map <leader>g grep! searchterm -r . | cfdo S/searchterm/replacedterm/gc | up
 
@@ -21,8 +40,8 @@ nmap <Leader>D "+D
 
 
 " Quick make current file
-nmap <leader>m :make! %:=line('.')<CR><CR>
-nmap <leader>M :make! %<CR>
+" nmap <leader>m :make! %\:=line('.')<CR><CR>
+" nmap <leader>M :make! %<CR>
 
 
 
@@ -37,9 +56,13 @@ nnoremap - :Explore<cr>
 
 
 " Pretty json
-nmap <leader>j :%!python -m json.tool
-vmap <leader>j :!python -m json.tool
-
+if executable('jq')
+  nmap <leader>j :%!jq .
+  vmap <leader>j :!jq .
+elseif
+  nmap <leader>j :%!python -m json.tool
+  vmap <leader>j :!python -m json.tool
+endif
 
 
 " grep
