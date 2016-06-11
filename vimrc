@@ -147,7 +147,7 @@ set incsearch
 set ignorecase
 set smartcase
 " If this is a git directory, use git's grep instead
-if !empty(glob('.git'))
+if !empty(system("git rev-parse --show-toplevel"))
   set grepprg=git\ grep\ --line-number\ $*
 endif
 " }}}
