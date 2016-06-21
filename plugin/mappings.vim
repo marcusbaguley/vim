@@ -64,7 +64,7 @@ nnoremap - :Explore<cr>
 if executable('jq')
   nmap <leader>j :%!jq .
   vmap <leader>j :!jq .
-elseif
+else
   nmap <leader>j :%!python -m json.tool
   vmap <leader>j :!python -m json.tool
 endif
