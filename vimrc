@@ -93,7 +93,7 @@ filetype plugin indent on    " required
 syntax enable
 
 " colorscheme solarized
-" set background=dark
+set background=dark
 " set background=light
 " set laststatus=2 " always show the statusline
 " }}}
