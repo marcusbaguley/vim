@@ -15,10 +15,9 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins for Vundle {{{
 
 " Trying out stage
-" Plugin 'mattn/emmet-vim'
 Plugin 'fatih/vim-go'
-Plugin 'diepm/vim-rest-console'
-Bundle 'wellle/tmux-complete.vim'
+Plugin 'wellle/tmux-complete.vim'
+Plugin 'tpope/vim-rhubarb'
 
 " Useful macros for refactoring ruby
 " runtime macros/matchit.vim
@@ -34,9 +33,7 @@ Plugin 'thoughtbot/pick.vim'
 " Tim Pope's useful plugins
 Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-jdaddy'
-" Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-surround'
 " Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-abolish'
@@ -146,8 +143,13 @@ set formatoptions+=j " see :h fo-table
 set incsearch
 set ignorecase
 set smartcase
-" If this is a git directory, use git's grep instead
-if !empty(system("git rev-parse --show-toplevel"))
+" ag is much faster than grep, and reads .gitignore
+" https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m"
+" If this is a git directory, use git's grep
+elseif !empty(system("git rev-parse --show-toplevel"))
   set grepprg=git\ grep\ --line-number\ $*
 endif
 " }}}
