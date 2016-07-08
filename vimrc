@@ -18,6 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'wellle/tmux-complete.vim'
 Plugin 'tpope/vim-rhubarb'
+Plugin 'tpope/vim-ragtag'
 
 " Useful macros for refactoring ruby
 " runtime macros/matchit.vim
