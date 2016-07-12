@@ -147,7 +147,7 @@ set smartcase
 " ag is much faster than grep, and reads .gitignore
 " https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  set grepprg=ag\ --vimgrep\ $*
+  set grepprg=ag\ --nogroup\ --nocolor\ --column\ $*
   set grepformat=%f:%l:%c:%m"
 " If this is a git directory, use git's grep
 elseif !empty(system("git rev-parse --show-toplevel"))
