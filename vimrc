@@ -134,8 +134,9 @@ endif
 set ttimeout
 set ttimeoutlen=0
 " Highlight 80th column to indicate code should not be at/past that point
-" set textwidth=79 " default max width
-" set colorcolumn=+1
+set textwidth=79 " default max width
+set colorcolumn=+1
+highlight ColorColumn ctermbg=Black
 set formatoptions+=j " see :h fo-table
 " }}}
 
