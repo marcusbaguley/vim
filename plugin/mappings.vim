@@ -4,7 +4,8 @@
 
 
 " Rdoc coverage on this file.
-nnoremap <leader>r :!rdoc -C1 %<CR>
+" nnoremap <leader>r :!rdoc -C1 %<CR>
+nnoremap <leader>r :!yard stats --list-undoc<CR>
 
 " Rspec extract variable into let
 function! PromoteToLet()
