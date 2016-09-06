@@ -32,7 +32,7 @@ Plugin 'tpope/vim-ragtag'
 " Plugin 'ludovicchabant/vim-gutentags' " Slow and runs everywhere
 
 " Tim Pope's useful plugins
-Plugin 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
