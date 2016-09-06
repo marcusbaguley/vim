@@ -37,7 +37,7 @@ let g:go_fmt_command = "goimports"
 " thoughtbot/pick.vim
 " ===================
 
-nnoremap <Leader>] :call PickFile()<CR>
+" nnoremap <Leader>] :call PickFile()<CR>
 
 
 

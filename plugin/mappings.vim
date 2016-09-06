@@ -1,3 +1,8 @@
+" No dependancy fuzzy(ish) match.
+nnoremap <Leader>] :find ./**/
+
+
+
 " Allow a quick preview on quickfix by pressing space
 " nnoremap <Space> <CR>zz:execute 'match Underlined /\%' . line('.') . 'l/'<CR>:copen<CR>
 " nnoremap <CR> :match<CR><CR>

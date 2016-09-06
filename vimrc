@@ -25,7 +25,7 @@ Plugin 'tpope/vim-ragtag'
 " Plugin 'ecomba/vim-ruby-refactoring'
 
 " Fuzzy project wide file finder
-Plugin 'thoughtbot/pick.vim'
+" Plugin 'thoughtbot/pick.vim'
 
 " Update Ctags on save
 " Plugin 'craigemery/vim-autotag' " Broken
