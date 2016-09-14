@@ -51,8 +51,8 @@ nmap <Leader>D "+D
 
 
 " Quick make current file
-nmap <leader>m :make! %\:=line('.')<CR><CR>:cw<CR>
-nmap <leader>M :make! %<CR>:cw<CR>
+nmap <leader>m :make! %\:=line('.')<CR><CR>
+nmap <leader>M :make! %<CR>
 
 
 
