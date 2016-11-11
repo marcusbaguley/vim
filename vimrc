@@ -135,9 +135,9 @@ set ttimeout
 set ttimeoutlen=0
 " Highlight 80th column to indicate code should not be at/past that point
 " default max width to 80 chars, but dont autowrap when typing.
-set textwidth=79 wrapmargin=0
-set colorcolumn=+1
-highlight ColorColumn ctermbg=Black
+" set textwidth=79 wrapmargin=0
+" set colorcolumn=+1
+" highlight ColorColumn ctermbg=Black
 set formatoptions+=j " see :h fo-table
 " }}}
 
