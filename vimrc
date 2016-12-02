@@ -15,10 +15,11 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins for Vundle {{{
 
 " Trying out stage
+nmap <leader>b "+yy:r!<C-r>"<del><CR>
 Plugin 'fatih/vim-go'
-Plugin 'wellle/tmux-complete.vim'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-ragtag'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " Useful macros for refactoring ruby
 " runtime macros/matchit.vim
@@ -97,6 +98,15 @@ syntax enable
 set background=dark
 " set background=light
 " set laststatus=2 " always show the statusline
+
+" Set some sensible diff colours.
+" Seriously, the defaults are not easy to comprehend.
+" Additions are are green
+highlight DiffAdd ctermbg=2
+" Deletions are red
+highlight DiffDelete ctermbg=1
+" Modifications are black
+highlight DiffChange ctermbg=0
 " }}}
 
 " Buffer Options {{{
@@ -194,4 +204,6 @@ set undofile
 " }}}
 
 " set clipboard+=unnamed
+" Include - as part of a word definition. For example, viw will select the
+" entire word of 'this-is-hyphened'
 set iskeyword+=-

@@ -1,5 +1,5 @@
 " No dependancy fuzzy(ish) match.
-nnoremap <Leader>] :find ./**/
+nnoremap <Leader>] :find ./**/*
 
 
 
