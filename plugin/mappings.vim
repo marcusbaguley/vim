@@ -1,5 +1,11 @@
+" Convert an old ruby hash ( :test => 'testing' ) to new ( test: 'testing' )
+nnoremap <leader>: f=xxxhi:<esc>F:x
+
+
+
 " No dependancy fuzzy(ish) match.
-nnoremap <Leader>] :find ./**/*
+" The \c makes it case-insensitive.
+nnoremap <Leader>] :find ./**/*\c
 
 
 
