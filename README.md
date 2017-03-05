@@ -3,13 +3,14 @@
 4 simple commands will get you vimming in no time!
 
 ```sh
+# Clone this repo
 git clone https://github.com/camfowler/vim.git ~/.vim
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Symlink the vimrc
 ln -s ~/.vim/vimrc ~/.vimrc
-vim +PluginInstall +qa
+
+# Install plugins
+~/.vim/pack/install.sh
 ```
 
 Enjoy!
-
-See [Vundle](https://github.com/gmarik/vundle/) for more information.
-
