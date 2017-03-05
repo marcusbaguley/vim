@@ -6,6 +6,7 @@ nnoremap <leader>: f=xxxhi:<esc>F:x
 " No dependancy fuzzy(ish) match.
 " The \c makes it case-insensitive.
 nnoremap <Leader>] :find ./**/*\c
+" nnoremap <Leader>] :find *\c
 
 
 

@@ -18,7 +18,6 @@ Plugin 'gmarik/Vundle.vim'
 nmap <leader>b "+yy:r!<C-r>"<del><CR>
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-ragtag'
 Plugin 'dhruvasagar/vim-table-mode'
 
 " Useful macros for refactoring ruby
@@ -37,12 +36,12 @@ Plugin 'dhruvasagar/vim-table-mode'
 " Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-" Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-vinegar'
+" Plugin 'tpope/vim-vinegar'
 
 " Ruby specific
 Plugin 'tpope/vim-rails'
@@ -71,6 +70,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'vim-scripts/applescript.vim'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 " Colorschemes
 " Plugin 'altercation/vim-colors-solarized'
@@ -186,14 +186,12 @@ set shortmess+=A
 set backupskip=/tmp/*,/private/tmp/*
 " }}}
 
-
 " TOhtml settings {{{
 let g:html_number_lines = 1
 " let g:html_dynamic_folds = 0
 " let g:html_no_foldcolumn = 1
 let g:html_prevent_copy = "n"
 " }}}
-
 
 " Undo {{{
 set undolevels=10000
@@ -207,3 +205,25 @@ set undofile
 " Include - as part of a word definition. For example, viw will select the
 " entire word of 'this-is-hyphened'
 set iskeyword+=-
+
+
+
+" From the talk https://www.youtube.com/watch?v=XA2WjJbmmoM
+
+" Recursivly add all files and folders to the path
+" Doesnt work with vim-bundler as it overwrites the path
+" set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" Netrw config
+let g:netrw_banner=0 " disable annoying banner
+
+
+
+
+" SNIPPETS:
+
+" Read an empty HTML template and move cursor to title
+nnoremap <leader>html :-1read $HOME/.vim/.skeleton.html<CR>?<title>\zs<CR>i
