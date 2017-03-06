@@ -2,4 +2,5 @@
 *
 # Except this file and install script
 !install.sh
+!update.sh
 !.gitignore
