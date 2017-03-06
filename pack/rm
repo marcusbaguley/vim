@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Usage:
+# ./rm pack/syntax/start/vim-markdown
+module_path=$1
+module_subdir=realpath --relative-to="$HOME/.vim" "$module_path"
+git submodule deinit -f "$module_path"
+git rm -f "$module_path"
+rm -rf "$HOME/.vim/.git/modules/$module_subdir"

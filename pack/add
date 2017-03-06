@@ -1,0 +1,9 @@
+#!/bin/bash
+
+plugin_group=$1
+repo_url=$2
+
+plugin_path="$HOME/.vim/pack/$plugin_group/start"
+mkdir -p "$plugin_path"
+cd "$plugin_path" || exit
+git submodule add "$repo_url"

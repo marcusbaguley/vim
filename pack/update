@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd "$HOME/.vim" || exit
+git submodule update --remote --merge
+cd - || exit
