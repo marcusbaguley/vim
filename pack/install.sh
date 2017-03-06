@@ -20,8 +20,8 @@ function plugin () {
     result=$(git pull)
     echo "$expected_repo: $result"
   else
+    echo "$expected_repo: Installing..."
     git clone -q "$repo"
-    echo "$expected_repo: Installed."
   fi
 }
 
