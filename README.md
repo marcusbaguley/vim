@@ -9,7 +9,7 @@ git clone https://github.com/camfowler/vim.git ~/.vim
 # Symlink the vimrc
 ln -s ~/.vim/vimrc ~/.vimrc
 
-# Install plugins
+# Install or update plugins
 ~/.vim/pack/install.sh
 ```
 
