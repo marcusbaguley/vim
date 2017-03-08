@@ -1,6 +1,13 @@
 #!/bin/bash
 
-# Create folder and ch into it
+# Create new folder in ~/.vim/pack that contains a start folder and cd into it.
+#
+# Arguments:
+#   plugin_group, a string folder name to create and change into.
+#
+# Examples:
+#   set_group syntax-highlighting
+#
 function set_group () {
   plugin_group=$1
   path="$HOME/.vim/pack/$plugin_group/start"
@@ -8,20 +15,24 @@ function set_group () {
   cd "$path" || exit
 }
 
-# takes a repo e.g.
+# Clone or update a git repo in the current directory.
 #
-#   plugin https://github.com/fatih/vim-go.git
+# Arguments:
+#   repo_url, a URL to the git repo.
+#
+# Examples:
+#   plugin https://github.com/tpope/vim-endwise.git
 #
 function plugin () {
-  repo=$1
-  expected_repo=$(basename "$repo" .git)
+  repo_url=$1
+  expected_repo=$(basename "$repo_url" .git)
   if [ -d "$expected_repo" ]; then
     cd "$expected_repo" || exit
     result=$(git pull)
     echo "$expected_repo: $result"
   else
     echo "$expected_repo: Installing..."
-    git clone -q "$repo"
+    git clone -q "$repo_url"
   fi
 }
 
