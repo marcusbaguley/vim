@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Create new folder in ~/.vim/pack that contains a start folder and cd into it.
 #
