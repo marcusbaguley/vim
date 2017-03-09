@@ -28,7 +28,7 @@ function package () {
   expected_repo=$(basename "$repo_url" .git)
   if [ -d "$expected_repo" ]; then
     cd "$expected_repo" || exit
-    result=$(git pull)
+    result=$(git pull --force)
     echo "$expected_repo: $result"
   else
     echo "$expected_repo: Installing..."
