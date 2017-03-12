@@ -85,12 +85,6 @@ endif
 " set completeopt=menu,preview
 " }}}
 
-" Environment Variables {{{
-" set shell=/bin/sh
-" ruby path if you are using rbenv
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
-" }}}
-
 " Swap files {{{
 set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
@@ -123,8 +117,7 @@ set iskeyword+=-
 " From the talk https://www.youtube.com/watch?v=XA2WjJbmmoM
 
 " Recursivly add all files and folders to the path
-" Doesnt work with vim-bundler as it overwrites the path
-" set path+=**
+set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
