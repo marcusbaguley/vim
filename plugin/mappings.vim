@@ -1,3 +1,9 @@
+" Drop in a new UUID
+inoremap <leader>u <cr><esc>:.-1read !uuidgen<cr>kgJJs
+nnoremap <leader>u a<cr><esc>:.-1read !uuidgen<cr>kgJJx
+
+
+
 " Convert an old ruby hash ( :test => 'testing' ) to new ( test: 'testing' )
 nnoremap <leader>: f=xxxhi:<esc>F:x
 

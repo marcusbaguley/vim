@@ -131,4 +131,4 @@ let g:netrw_banner=0 " disable annoying banner
 " SNIPPETS:
 
 " Read an empty HTML template and move cursor to title
-nnoremap <leader>html :-1read $HOME/.vim/.skeleton.html<CR>?<title>\zs<CR>i
+" nnoremap <leader>html :-1read $HOME/.vim/.skeleton.html<CR>?<title>\zs<CR>i
