@@ -94,6 +94,8 @@ package https://github.com/pearofducks/ansible-vim.git &
 package https://github.com/vim-scripts/applescript.vim.git &
 package https://github.com/tmux-packages/vim-tmux.git &
 package https://github.com/Matt-Deacalion/vim-systemd-syntax.git &
+package https://github.com/salomvary/vim-eslint-compiler.git &
+package https://github.com/hashivim/vim-terraform.git &
 wait
 ) &
 

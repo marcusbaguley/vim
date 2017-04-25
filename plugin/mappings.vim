@@ -1,3 +1,7 @@
+" Swap to Dockerfile array style from shell style
+nnoremap <leader>a :s/ /", "/g<cr>_w3xi [<esc>A"]<esc>_
+nnoremap <leader>c :s/", "/ /g<cr>_w2x$xx_
+
 " Drop in a new UUID
 inoremap <leader>u <cr><esc>:.-1read !uuidgen<cr>kgJJs
 nnoremap <leader>u a<cr><esc>:.-1read !uuidgen<cr>kgJJx

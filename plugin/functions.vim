@@ -11,4 +11,3 @@ function SetCompilerForRspec()
     " nmap <leader>s :Start rspec %\:=line('.')<CR><CR>
   endif
 endfunction
-
