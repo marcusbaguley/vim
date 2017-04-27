@@ -11,3 +11,19 @@ function SetCompilerForRspec()
     " nmap <leader>s :Start rspec %\:=line('.')<CR><CR>
   endif
 endfunction
+
+" Useful for migrating config between terraform environments in the Lic-NZ.
+" Also useful:
+"
+"   diff ./ ../../../dev/services/$(basename $(pwd))/ --color --exclude="secrets*"
+"
+" Or, if you have the script installed:
+"
+"   licdiff dev
+function LicDiff(env)
+  let file_path = "../../../" . a:env . "/services/" . expand('%:p:h:t') . "/%"
+  diffthis
+  vs
+  exec "edit " . file_path
+  diffthis
+endfunction
