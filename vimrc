@@ -61,10 +61,11 @@ set ttimeoutlen=0
 " set colorcolumn=+1
 " highlight ColorColumn ctermbg=Black
 set formatoptions+=j " see :h fo-table
+set cursorline
 " }}}
 
 " Searching {{{
-" set hlsearch
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -125,6 +126,7 @@ set wildmenu
 " Netrw config
 let g:netrw_banner=0 " disable annoying banner
 
+set mouse=a
 
 
 
