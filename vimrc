@@ -126,8 +126,6 @@ set wildmenu
 " Netrw config
 let g:netrw_banner=0 " disable annoying banner
 
-set mouse=a
-
 
 
 " SNIPPETS:
