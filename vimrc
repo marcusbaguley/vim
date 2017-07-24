@@ -63,8 +63,6 @@ set ttimeoutlen=0
 set formatoptions+=j " see :h fo-table
 set cursorline
 
-map <leader>[ :NERDTreeToggle<CR>
-
 " }}}
 
 " Searching {{{
@@ -110,6 +108,10 @@ set undodir=~/.vim/undo " Allow undoes to persist even after a file is closed
 set undofile
 " endif
 " }}}
+
+map <leader>[ :NERDTreeToggle<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " set clipboard+=unnamed
 " Include - as part of a word definition. For example, viw will select the
