@@ -62,6 +62,9 @@ set ttimeoutlen=0
 " highlight ColorColumn ctermbg=Black
 set formatoptions+=j " see :h fo-table
 set cursorline
+
+map <leader>[ :NERDTreeToggle<CR>
+
 " }}}
 
 " Searching {{{

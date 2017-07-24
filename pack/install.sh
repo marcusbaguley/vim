@@ -60,6 +60,12 @@ wait
 ) &
 
 (
+set_group ide
+package https://github.com/scrooloose/nerdtree.git &
+wait
+) &
+
+(
 set_group ruby
 package https://github.com/tpope/vim-rails.git &
 package https://github.com/tpope/vim-rake.git &
