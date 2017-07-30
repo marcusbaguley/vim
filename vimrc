@@ -75,6 +75,8 @@ set smartcase
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --column\ $*
   set grepformat=%f:%l:%c:%m"
+  " searches for the word under your cursor and hits return
+  "map <C-l> :Ag! "<C-r>=expand('<cword>')<CR>"<CR>
 " If this is a git directory, use git's grep
 elseif !empty(system("git rev-parse --show-toplevel"))
   set grepprg=git\ grep\ --line-number\ $*
@@ -112,6 +114,8 @@ set undofile
 map <leader>[ :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+map <C-m> :CtrlPBuffer<CR>
+ 
 
 " set clipboard+=unnamed
 " Include - as part of a word definition. For example, viw will select the
