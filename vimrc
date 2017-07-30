@@ -75,8 +75,6 @@ set smartcase
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --column\ $*
   set grepformat=%f:%l:%c:%m"
-  " searches for the word under your cursor and hits return
-  noremap <Leader>a :Ag <cword><cr>
 " If this is a git directory, use git's grep
 elseif !empty(system("git rev-parse --show-toplevel"))
   set grepprg=git\ grep\ --line-number\ $*
@@ -111,10 +109,13 @@ set undofile
 " endif
 " }}}
 
+" searches for the word under your cursor and hits return
+noremap <C-a> :Ag <cword><cr>
+
 map <leader>[ :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-map <C-m> :CtrlPBuffer<CR>
+noremap <leader>] :CtrlPBuffer<CR>
  
 
 " set clipboard+=unnamed
