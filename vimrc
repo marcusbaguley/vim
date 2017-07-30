@@ -76,7 +76,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --column\ $*
   set grepformat=%f:%l:%c:%m"
   " searches for the word under your cursor and hits return
-  "map <C-l> :Ag! "<C-r>=expand('<cword>')<CR>"<CR>
+  noremap <Leader>a :Ag <cword><cr>
 " If this is a git directory, use git's grep
 elseif !empty(system("git rev-parse --show-toplevel"))
   set grepprg=git\ grep\ --line-number\ $*
