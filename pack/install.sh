@@ -63,6 +63,7 @@ wait
 set_group ide
 package https://github.com/scrooloose/nerdtree.git &
 package https://github.com/kien/ctrlp.vim &
+package https://github.com/airblade/vim-gitgutter &
 wait
 ) &
 
