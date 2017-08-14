@@ -118,6 +118,9 @@ let g:ctrlp_cmd = 'CtrlP'
 noremap <leader>] :CtrlPBuffer<CR>
  
 
+" for vim-gitgutter change default of 4s to 250ms to keep file changes live
+set updatetime=250
+
 " set clipboard+=unnamed
 " Include - as part of a word definition. For example, viw will select the
 " entire word of 'this-is-hyphened'
