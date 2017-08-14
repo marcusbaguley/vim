@@ -123,6 +123,8 @@ noremap <leader>] :CtrlPBuffer<CR>
 " entire word of 'this-is-hyphened'
 set iskeyword+=-
 
+" Remove spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 " From the talk https://www.youtube.com/watch?v=XA2WjJbmmoM
