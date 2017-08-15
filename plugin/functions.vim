@@ -3,6 +3,8 @@ function SetCompilerForRspec()
   if !empty(glob('.zeus.sock'))
     set makeprg=zeus\ rspec
     " nmap <leader>s :Start zeus rspec %\:=line('.')<CR><CR>
+  elseif !empty(glob('docker-compose-dev.yml'))
+    set makeprg=docker-compose\ -f\ docker-compose-dev.yml\ run\ web-test\ bundle\ exec\ rspec\
   elseif !empty(glob('docker-compose.yml'))
     set makeprg=docker-compose\ run\ web-test\ bundle\ exec\ rspec\
   elseif !empty(glob('Gemfile'))
