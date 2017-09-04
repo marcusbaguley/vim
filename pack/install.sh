@@ -105,6 +105,7 @@ package https://github.com/Matt-Deacalion/vim-systemd-syntax.git &
 package https://github.com/salomvary/vim-eslint-compiler.git &
 package https://github.com/hashivim/vim-terraform.git &
 package https://github.com/slashmili/alchemist.vim &
+package https://github.com/elixir-lang/vim-elixir.git &
 wait
 ) &
 
