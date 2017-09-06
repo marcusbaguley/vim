@@ -1,3 +1,13 @@
+function SetCompilerForElixir()
+  compiler rspec
+  if !empty(glob('docker-compose.yml'))
+    set makeprg=docker-compose\ run\ web-test\ mix\ test\
+  else
+    set makeprg=mix\ test
+    " nmap <leader>s :Start mix test %\:=line('.')<CR><CR>
+  endif
+endfunction
+
 function SetCompilerForRspec()
   compiler rspec
   if !empty(glob('.zeus.sock'))
