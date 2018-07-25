@@ -116,7 +116,7 @@ map <leader>[ :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 noremap <leader>] :CtrlPBuffer<CR>
- 
+
 
 " for vim-gitgutter change default of 4s to 250ms to keep file changes live
 set updatetime=250
@@ -141,7 +141,8 @@ set wildmenu
 " Netrw config
 let g:netrw_banner=0 " disable annoying banner
 
-
+" Format XML
+com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 " SNIPPETS:
 
