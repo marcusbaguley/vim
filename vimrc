@@ -22,8 +22,8 @@ highlight DiffChange ctermbg=0
 " }}}
 
 " Buffer Options {{{
-" set hidden   " Buffers can be hidden and edited
-" set autoread " Automatically load changes to open files
+set hidden   " Buffers can be hidden and edited
+set autoread " Automatically load changes to open files
 " }}}
 
 " Formatting and indentation {{{
@@ -82,9 +82,9 @@ endif
 " }}}
 
 " Autocomplete {{{
-" set complete=.,b,u,]
-" set wildmode=longest,list:longest
-" set completeopt=menu,preview
+set complete=.,b,u,]
+set wildmode=longest,list:longest
+set completeopt=menu,preview
 " }}}
 
 " Swap files {{{
@@ -110,7 +110,7 @@ set undofile
 " }}}
 
 " searches for the word under your cursor and hits return
-noremap <C-a> :Ag <cword><cr>
+noremap <Leader>f :Ag <cword><cr>
 
 map <leader>[ :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
@@ -148,3 +148,8 @@ com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom
 
 " Read an empty HTML template and move cursor to title
 " nnoremap <leader>html :-1read $HOME/.vim/.skeleton.html<CR>?<title>\zs<CR>i
+" Fold XML
+augroup XML
+    autocmd!
+    autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0
+augroup END
