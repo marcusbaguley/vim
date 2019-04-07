@@ -109,6 +109,12 @@ set undofile
 " endif
 " }}}
 
+
+" Omni completion is not usually enabled by default. To use omni completion,
+" type <C-X><C-O> while open in Insert mode
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 " searches for the word under your cursor and hits return
 noremap <Leader>f :Ag <cword><cr>
 

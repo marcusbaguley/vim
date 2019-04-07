@@ -77,6 +77,14 @@ wait
 ) &
 
 (
+set_group typescript
+package https://github.com/elixir-lang/vim-elixir.git &
+package https://github.com/leafgarland/typescript-vim.git &
+package https://github.com/Quramy/tsuquyomi.git &
+wait
+) &
+
+(
 set_group snippets
 # Vim-snipmate and dependencies - VimL but buggy
 package https://github.com/MarcWeber/vim-addon-mw-utils.git &
