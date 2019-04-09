@@ -118,6 +118,9 @@ set omnifunc=syntaxcomplete#Complete
 " searches for the word under your cursor and hits return
 noremap <Leader>f :Ag <cword><cr>
 
+" Map Typescript references to leader G mainly to remove it from C-^
+map <Leader>g <Plug>(TsuquyomiReferences)
+
 map <leader>[ :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
