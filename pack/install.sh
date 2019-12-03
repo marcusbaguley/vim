@@ -64,6 +64,8 @@ set_group ide
 package https://github.com/scrooloose/nerdtree.git &
 package https://github.com/kien/ctrlp.vim &
 package https://github.com/airblade/vim-gitgutter &
+package https://github.com/mhinz/vim-mix-format &
+# package https://github.com/w0rp/ale &
 wait
 ) &
 
@@ -78,7 +80,6 @@ wait
 
 (
 set_group typescript
-package https://github.com/elixir-lang/vim-elixir.git &
 package https://github.com/leafgarland/typescript-vim.git &
 package https://github.com/Quramy/tsuquyomi.git &
 wait

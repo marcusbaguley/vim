@@ -1,4 +1,5 @@
 " vim:fdm=marker
+" note zR - open all folds
 set nocompatible
 filetype plugin indent on
 
@@ -125,6 +126,8 @@ map <leader>[ :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 noremap <leader>] :CtrlPBuffer<CR>
+" ignore gitignore files
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 
 " for vim-gitgutter change default of 4s to 250ms to keep file changes live
@@ -138,6 +141,35 @@ set iskeyword+=-
 " Remove spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+let g:mix_format_on_save = 1
+let g:mix_format_silent_errors = 1
+
+"  " JS prettifier
+"
+"  " w0rp/ale
+"  " ========
+"  " Dont lint while I type, seriously, I'm not done yet.
+"  let g:ale_lint_on_text_changed = 'never'
+"
+"  " After this is configured, :ALEFix will try and fix your JS code with ESLint.
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+"
+"  " Set this setting in vimrc if you want to fix files automatically on save.
+"  " This is off by default.
+let g:ale_fix_on_save = 1
+"
+"  " Install via yarn global add prettier
+"  "autocmd FileType javascript set formatprg=prettier\ --stdin
+"  " Format on js save
+"  "autocmd BufWritePre *.js :normal gggqG
+"  " If you want to restore cursor position on save (can be buggy):
+"  "
+"  "autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
+
+" We really don't want any tabs
+set tabstop=2 shiftwidth=2 expandtab
 
 " From the talk https://www.youtube.com/watch?v=XA2WjJbmmoM
 
