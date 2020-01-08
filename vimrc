@@ -119,15 +119,16 @@ set omnifunc=syntaxcomplete#Complete
 " searches for the word under your cursor and hits return
 noremap <Leader>f :Ag <cword><cr>
 
+" fzf
+nnoremap <leader>] :GFiles<cr>
+nnoremap <leader>o :Lines<cr>
+nnoremap <leader>t :Tags<cr>
+nnoremap <leader>r :Buffers<cr>
+
 " Map Typescript references to leader G mainly to remove it from C-^
 map <Leader>g <Plug>(TsuquyomiReferences)
 
 map <leader>[ :NERDTreeToggle<CR>
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-noremap <leader>] :CtrlPBuffer<CR>
-" ignore gitignore files
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 
 " for vim-gitgutter change default of 4s to 250ms to keep file changes live
