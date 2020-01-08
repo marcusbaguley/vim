@@ -120,7 +120,8 @@ set omnifunc=syntaxcomplete#Complete
 noremap <Leader>f :Ag <cword><cr>
 
 " fzf
-nnoremap <leader>] :GFiles<cr>
+nnoremap <silent> <expr> <Leader>] (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles\<cr>"
+" nnoremap <leader>] :GFiles<cr>
 nnoremap <leader>o :Lines<cr>
 nnoremap <leader>t :Tags<cr>
 nnoremap <leader>r :Buffers<cr>
