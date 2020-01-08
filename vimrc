@@ -120,11 +120,9 @@ set omnifunc=syntaxcomplete#Complete
 noremap <Leader>f :Ag <cword><cr>
 
 " fzf
-nnoremap <silent> <expr> <Leader>] (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles\<cr>"
-" nnoremap <leader>] :GFiles<cr>
-nnoremap <leader>o :Lines<cr>
-nnoremap <leader>t :Tags<cr>
-nnoremap <leader>r :Buffers<cr>
+nnoremap <silent> <expr> <c-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles\<cr>"
+nnoremap <silent> <expr> <Leader>] (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles?\<cr>"
+nnoremap <silent> <expr> <Leader>b (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Buffers\<cr>"
 
 " Map Typescript references to leader G mainly to remove it from C-^
 map <Leader>g <Plug>(TsuquyomiReferences)
