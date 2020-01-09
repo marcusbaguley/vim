@@ -171,6 +171,8 @@ let g:ale_fix_on_save = 1
 " We really don't want any tabs
 set tabstop=2 shiftwidth=2 expandtab
 
+autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
+
 " From the talk https://www.youtube.com/watch?v=XA2WjJbmmoM
 
 " Recursivly add all files and folders to the path
