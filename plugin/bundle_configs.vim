@@ -48,6 +48,31 @@ let g:go_fmt_command = "goimports"
 let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
 
 
+" https://github.com/heavenshell/vim-tslint
+" You can use Tsuquyomi's TsuGeterr and Tslint. Set followings to your vimrc.
+
+augroup tslint
+  function! s:typescript_after(ch, msg)
+    let cnt = len(getqflist())
+    if cnt > 0
+      echomsg printf('[Tslint] %s errors', cnt)
+    endif
+  endfunction
+  let g:tslint_callbacks = {
+    \ 'after_run': function('s:typescript_after')
+    \ }
+
+  let g:tsuquyomi_disable_quickfix = 1
+
+  function! s:ts_quickfix()
+    let winid = win_getid()
+    execute ':TsuquyomiGeterr'
+    call tslint#run('a', winid)
+  endfunction
+
+  autocmd BufWritePost *.ts,*.tsx silent! call s:ts_quickfix()
+  autocmd InsertLeave *.ts,*.tsx silent! call s:ts_quickfix()
+augroup END
 
 "
 " christoomey/vim-tmux-navigator

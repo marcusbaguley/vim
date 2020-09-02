@@ -48,8 +48,8 @@ wait
 set_group tpope
 # package https://github.com/tpope/vim-dispatch.git &
 # package https://github.com/tpope/vim-jdaddy.git &
-package https://github.com/tpope/vim-fugitive.git &
-package https://github.com/tpope/vim-surround.git &
+# package https://github.com/tpope/vim-fugitive.git &
+# package https://github.com/tpope/vim-surround.git &
 package https://github.com/tpope/vim-ragtag.git &
 package https://github.com/tpope/vim-abolish.git &
 package https://github.com/tpope/vim-repeat.git &
@@ -62,21 +62,21 @@ wait
 (
 set_group ide
 package https://github.com/scrooloose/nerdtree.git &
-# package https://github.com/kien/ctrlp.vim &
 package https://github.com/airblade/vim-gitgutter &
 package https://github.com/mhinz/vim-mix-format &
-# package https://github.com/w0rp/ale &
-package https://github.com/junegunn/fzf
-package https://github.com/junegunn/fzf.vim
+package https://github.com/w0rp/ale &
+package https://github.com/junegunn/fzf &
+package https://github.com/junegunn/fzf.vim &
+package https://github.com/prettier/vim-prettier &
 wait
 ) &
 
 (
 set_group ruby
-package https://github.com/tpope/vim-rails.git &
-package https://github.com/tpope/vim-rake.git &
-package https://github.com/tpope/vim-bundler.git &
-package https://github.com/tpope/vim-endwise.git &
+# package https://github.com/tpope/vim-rails.git &
+# package https://github.com/tpope/vim-rake.git &
+# package https://github.com/tpope/vim-bundler.git &
+# package https://github.com/tpope/vim-endwise.git &
 wait
 ) &
 
@@ -84,6 +84,7 @@ wait
 set_group typescript
 package https://github.com/leafgarland/typescript-vim.git &
 package https://github.com/Quramy/tsuquyomi.git &
+package https://github.com/heavenshell/vim-tslint &
 wait
 ) &
 
