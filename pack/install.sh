@@ -88,16 +88,16 @@ package https://github.com/heavenshell/vim-tslint &
 wait
 ) &
 
-(
-set_group snippets
+#(
+#set_group snippets SnipMate depricated - never used it much anyways
 # Vim-snipmate and dependencies - VimL but buggy
-package https://github.com/MarcWeber/vim-addon-mw-utils.git &
-package https://github.com/tomtom/tlib_vim.git &
-package https://github.com/garbas/vim-snipmate.git &
+#package https://github.com/MarcWeber/vim-addon-mw-utils.git &
+#package https://github.com/tomtom/tlib_vim.git &
+#package https://github.com/garbas/vim-snipmate.git &
 # Ultisnips is python but more functional
 # package https://github.com/SirVer/ultisnips.git &
-wait
-) &
+#wait
+#) &
 
 (
 set_group tmux
