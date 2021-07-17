@@ -126,6 +126,7 @@ map <Leader>g <Plug>(TsuquyomiReferences)
 
 
 map <leader>[ :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 
 " for vim-gitgutter change default of 4s to 250ms to keep file changes live
