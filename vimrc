@@ -150,11 +150,11 @@ packloadall
 " " All messages and errors will be ignored.
 silent! helptags ALL
 
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+" autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+" autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+" autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+" autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+" autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 "  " JS prettifier
 "
 "  " w0rp/ale
@@ -163,7 +163,9 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {
  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
- \ 'javascript': ['prettier', 'eslint']
+ \ 'javascript': ['prettier', 'eslint'],
+ \ 'typescript': ['prettier', 'tslint'],
+ \ 'elixir': ['mix_format'],
  \ }
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
