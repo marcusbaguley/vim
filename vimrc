@@ -143,6 +143,17 @@ autocmd BufWritePre *.ts :Prettier
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
 
+" vim-prettier
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" " All messages and errors will be ignored.
+silent! helptags ALL
+
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 "  " JS prettifier
 "
 "  " w0rp/ale
@@ -150,7 +161,8 @@ let g:mix_format_silent_errors = 1
 "  " Dont lint while I type, seriously, I'm not done yet.
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {
- \ 'javascript': ['eslint']
+ \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+ \ 'javascript': ['prettier', 'eslint']
  \ }
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
@@ -168,7 +180,7 @@ let g:ale_fix_on_save = 1
 " We really don't want any tabs
 set tabstop=2 shiftwidth=2 expandtab
 
-autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
+" autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
 
 " From the talk https://www.youtube.com/watch?v=XA2WjJbmmoM
 

@@ -55,6 +55,7 @@ package https://github.com/tpope/vim-abolish.git &
 package https://github.com/tpope/vim-repeat.git &
 package https://github.com/tpope/vim-commentary.git &
 package https://github.com/tpope/vim-projectionist.git &
+package https://github.com/maksimr/vim-jsbeautify.git &
 # package https://github.com/tpope/vim-vinegar.git &
 wait
 ) &
