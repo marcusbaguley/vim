@@ -1,5 +1,6 @@
 " vim:fdm=marker
-" note zR - open all folds
+" Lets turn off folding (zR - open all folds)
+set nofoldenable
 set nocompatible
 filetype plugin indent on
 
