@@ -38,9 +38,9 @@ function package () {
 
 (
 set_group staging
-package https://github.com/fatih/vim-go.git &
-package https://github.com/tpope/vim-rhubarb.git &
-package https://github.com/dhruvasagar/vim-table-mode.git &
+# package https://github.com/fatih/vim-go.git &
+# package https://github.com/tpope/vim-rhubarb.git &
+# package https://github.com/dhruvasagar/vim-table-mode.git &
 wait
 ) &
 
@@ -58,14 +58,14 @@ package https://github.com/tpope/vim-projectionist.git &
 # package https://github.com/tpope/vim-vinegar.git &
 wait
 ) &
-
 (
 set_group ide
 package https://github.com/scrooloose/nerdtree.git &
 # package https://github.com/kien/ctrlp.vim &
-package https://github.com/airblade/vim-gitgutter &
-package https://github.com/mhinz/vim-mix-format &
-# package https://github.com/w0rp/ale &
+# package https://github.com/airblade/vim-gitgutter &
+# package https://github.com/mhinz/vim-mix-format &
+package https://github.com/vim-ruby/vim-ruby &
+package https://github.com/w0rp/ale &
 package https://github.com/junegunn/fzf
 package https://github.com/junegunn/fzf.vim
 wait
@@ -87,22 +87,11 @@ package https://github.com/Quramy/tsuquyomi.git &
 wait
 ) &
 
-(
-set_group snippets
-# Vim-snipmate and dependencies - VimL but buggy
-package https://github.com/MarcWeber/vim-addon-mw-utils.git &
-package https://github.com/tomtom/tlib_vim.git &
-package https://github.com/garbas/vim-snipmate.git &
-# Ultisnips is python but more functional
-# package https://github.com/SirVer/ultisnips.git &
-wait
-) &
-
-(
-set_group tmux
-package https://github.com/christoomey/vim-tmux-navigator.git &
-wait
-) &
+#(
+#set_group tmux
+#package https://github.com/christoomey/vim-tmux-navigator.git &
+#wait
+#) &
 
 (
 set_group syntax
@@ -110,7 +99,7 @@ package https://github.com/tpope/vim-markdown.git &
 package https://github.com/ap/vim-css-color.git &
 package https://github.com/pearofducks/ansible-vim.git &
 package https://github.com/vim-scripts/applescript.vim.git &
-package https://github.com/tmux-plugins/vim-tmux.git &
+# package https://github.com/tmux-plugins/vim-tmux.git &
 package https://github.com/Matt-Deacalion/vim-systemd-syntax.git &
 package https://github.com/salomvary/vim-eslint-compiler.git &
 package https://github.com/hashivim/vim-terraform.git &
