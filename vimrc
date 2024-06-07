@@ -1,5 +1,6 @@
 " vim:fdm=marker
-" note zR - open all folds
+" Lets turn off folding (zR - open all folds)
+set nofoldenable
 set nocompatible
 filetype plugin indent on
 
@@ -116,9 +117,6 @@ set undofile
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-" searches for the word under your cursor and hits return
-noremap <Leader>f :Ag <cword><cr>
-
 " fzf
 nnoremap <silent> <expr> <c-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles\<cr>"
 nnoremap <silent> <expr> <Leader>] (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles?\<cr>"
@@ -127,7 +125,9 @@ nnoremap <silent> <expr> <Leader>b (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" 
 " Map Typescript references to leader G mainly to remove it from C-^
 map <Leader>g <Plug>(TsuquyomiReferences)
 
+
 map <leader>[ :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 
 " for vim-gitgutter change default of 4s to 250ms to keep file changes live
@@ -140,24 +140,37 @@ set iskeyword+=-
 
 " Remove spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre *.ts :Prettier
 
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
 
+" vim-prettier
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" " All messages and errors will be ignored.
+silent! helptags ALL
+
+" autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+" autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+" autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+" autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+" autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 "  " JS prettifier
 "
 "  " w0rp/ale
 "  " ========
 "  " Dont lint while I type, seriously, I'm not done yet.
-"  let g:ale_lint_on_text_changed = 'never'
-"
-"  " After this is configured, :ALEFix will try and fix your JS code with ESLint.
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
-"
-"  " Set this setting in vimrc if you want to fix files automatically on save.
-"  " This is off by default.
+ \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+ \ 'javascript': ['prettier', 'eslint'],
+ \ 'typescript': ['prettier', 'tslint'],
+ \ 'elixir': ['mix_format'],
+ \ }
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+" Set this setting in vimrc if you want to fix files automatically on save.
 let g:ale_fix_on_save = 1
 "
 "  " Install via yarn global add prettier
@@ -171,7 +184,7 @@ let g:ale_fix_on_save = 1
 " We really don't want any tabs
 set tabstop=2 shiftwidth=2 expandtab
 
-autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
+" autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
 
 " From the talk https://www.youtube.com/watch?v=XA2WjJbmmoM
 
@@ -186,6 +199,10 @@ let g:netrw_banner=0 " disable annoying banner
 
 " Format XML
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+
+
+" TS Automatically lint on save
+autocmd BufWritePost *.ts,*.tsx call tslint#run('a', win_getid())
 
 " SNIPPETS:
 

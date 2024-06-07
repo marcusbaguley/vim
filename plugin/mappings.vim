@@ -52,17 +52,17 @@ map <leader>l :PromoteToLet<cr>
 nmap <leader># I# <esc>_dt#$pxF#i <esc>_xx
 
 " Copy & paste to system clipboard with <Leader>p and <Leader>y:
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-
-nmap <Leader>y "+y
-nmap <Leader>Y "+Y
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-nmap <Leader>d "+d
-nmap <Leader>D "+D
+"vmap <Leader>y "+y
+"vmap <Leader>d "+d
+"vmap <Leader>p "+p
+"vmap <Leader>P "+P
+"
+"nmap <Leader>y "+y
+"nmap <Leader>Y "+Y
+"nmap <Leader>p "+p
+"nmap <Leader>P "+P
+"nmap <Leader>d "+d
+"nmap <Leader>D "+D
 
 
 
@@ -94,7 +94,7 @@ endif
 
 
 " grep
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow 20|redraw!
+command -nargs=+ -complete=file -bar AG silent! grep! <args>|cwindow 20|redraw!
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 

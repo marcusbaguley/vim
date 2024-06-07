@@ -48,35 +48,36 @@ wait
 set_group tpope
 # package https://github.com/tpope/vim-dispatch.git &
 # package https://github.com/tpope/vim-jdaddy.git &
-package https://github.com/tpope/vim-fugitive.git &
-package https://github.com/tpope/vim-surround.git &
+# package https://github.com/tpope/vim-fugitive.git &
+# package https://github.com/tpope/vim-surround.git &
 package https://github.com/tpope/vim-ragtag.git &
 package https://github.com/tpope/vim-abolish.git &
 package https://github.com/tpope/vim-repeat.git &
 package https://github.com/tpope/vim-commentary.git &
 package https://github.com/tpope/vim-projectionist.git &
+package https://github.com/maksimr/vim-jsbeautify.git &
 # package https://github.com/tpope/vim-vinegar.git &
 wait
 ) &
 (
 set_group ide
 package https://github.com/scrooloose/nerdtree.git &
-# package https://github.com/kien/ctrlp.vim &
 package https://github.com/airblade/vim-gitgutter &
 # package https://github.com/mhinz/vim-mix-format &
 package https://github.com/vim-ruby/vim-ruby &
 package https://github.com/w0rp/ale &
 package https://github.com/junegunn/fzf
 package https://github.com/junegunn/fzf.vim
+package https://github.com/prettier/vim-prettier &
 wait
 ) &
 
 (
 set_group ruby
-package https://github.com/tpope/vim-rails.git &
-package https://github.com/tpope/vim-rake.git &
-package https://github.com/tpope/vim-bundler.git &
-package https://github.com/tpope/vim-endwise.git &
+# package https://github.com/tpope/vim-rails.git &
+# package https://github.com/tpope/vim-rake.git &
+# package https://github.com/tpope/vim-bundler.git &
+# package https://github.com/tpope/vim-endwise.git &
 wait
 ) &
 
@@ -84,14 +85,26 @@ wait
 set_group typescript
 package https://github.com/leafgarland/typescript-vim.git &
 package https://github.com/Quramy/tsuquyomi.git &
+package https://github.com/heavenshell/vim-tslint &
 wait
 ) &
 
 #(
-#set_group tmux
-#package https://github.com/christoomey/vim-tmux-navigator.git &
+#set_group snippets SnipMate depricated - never used it much anyways
+# Vim-snipmate and dependencies - VimL but buggy
+#package https://github.com/MarcWeber/vim-addon-mw-utils.git &
+#package https://github.com/tomtom/tlib_vim.git &
+#package https://github.com/garbas/vim-snipmate.git &
+# Ultisnips is python but more functional
+# package https://github.com/SirVer/ultisnips.git &
 #wait
 #) &
+
+(
+set_group tmux
+package https://github.com/christoomey/vim-tmux-navigator.git &
+wait
+) &
 
 (
 set_group syntax
