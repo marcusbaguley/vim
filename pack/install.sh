@@ -66,6 +66,7 @@ package https://github.com/airblade/vim-gitgutter &
 # package https://github.com/mhinz/vim-mix-format &
 package https://github.com/vim-ruby/vim-ruby &
 package https://github.com/w0rp/ale &
+package https://github.com/prabirshrestha/vim-lsp.git &
 package https://github.com/junegunn/fzf
 package https://github.com/junegunn/fzf.vim
 package https://github.com/prettier/vim-prettier &
