@@ -118,6 +118,7 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " fzf
+nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <expr> <c-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles\<cr>"
 nnoremap <silent> <expr> <Leader>] (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":GFiles?\<cr>"
 nnoremap <silent> <expr> <Leader>b (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Buffers\<cr>"
