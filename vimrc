@@ -3,7 +3,7 @@
 set nocompatible
 filetype plugin indent on
 
-" GUI options {{{
+" GUI options
 " set number
 syntax enable
 
@@ -22,21 +22,19 @@ highlight DiffDelete ctermbg=1
 highlight DiffChange ctermbg=0
 " }}}
 
-" Buffer Options {{{
+" Buffer Options
 set hidden   " Buffers can be hidden and edited
 set autoread " Automatically load changes to open files
-" }}}
 
-" Formatting and indentation {{{
+" Formatting and indentation
 " Use spaces instead of tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set ts=2 sw=2 expandtab
 set smarttab
 filetype indent plugin on
 set autoindent
-" }}}
 
-" Editing and text display {{{
+" Editing and text display
 set backspace=indent,eol,start
 " set showmatch
 " Make Y consistent with C and D.  See :help Y.
@@ -64,9 +62,7 @@ set ttimeoutlen=0
 set formatoptions+=j " see :h fo-table
 set cursorline
 
-" }}}
-
-" Searching {{{
+" Searching
 set hlsearch
 set incsearch
 set ignorecase
@@ -80,35 +76,30 @@ if executable('ag')
 elseif !empty(system("git rev-parse --show-toplevel"))
   set grepprg=git\ grep\ --line-number\ $*
 endif
-" }}}
 
-" Autocomplete {{{
+" Autocomplete
 set complete=.,b,u,]
 set wildmode=longest,list:longest
 set completeopt=menu,preview
-" }}}
 
-" Swap files {{{
+" Swap files
 set backupdir=~/.vim/swp-files
 set directory=~/.vim/swp-files
 set shortmess+=A
 set backupskip=/tmp/*,/private/tmp/*
-" }}}
 
-" TOhtml settings {{{
+" TOhtml settings
 let g:html_number_lines = 1
 " let g:html_dynamic_folds = 0
 " let g:html_no_foldcolumn = 1
 let g:html_prevent_copy = "n"
-" }}}
 
-" Undo {{{
+" Undo
 set undolevels=10000
 " if has("persistent_undo")
 set undodir=~/.vim/undo " Allow undoes to persist even after a file is closed
 set undofile
 " endif
-" }}}
 
 
 " Omni completion is not usually enabled by default. To use omni completion,

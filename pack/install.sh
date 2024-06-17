@@ -70,6 +70,7 @@ package https://github.com/prabirshrestha/vim-lsp.git &
 package https://github.com/junegunn/fzf
 package https://github.com/junegunn/fzf.vim
 package https://github.com/prettier/vim-prettier &
+package https://github.com/mileszs/ack.vim &
 wait
 ) &
 
